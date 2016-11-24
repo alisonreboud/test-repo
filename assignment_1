@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <style>
-  .col50{
-  
-<h2>This is the title </h2>
+  .class1 {
+  color:red;
+  }
+  </style>
+<h2 class="class1"> This is the title </h2>
 <br>
-<div style="text-align; right;">
 </body>
- 
+<div style="text-align; right; 
