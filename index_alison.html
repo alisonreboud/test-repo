@@ -40,14 +40,23 @@
           
 				//Create histo
     
-              	 		svg.selectAll("div")
-				.data(dataset)
-				.enter()
-				.append("div")
-				.attr("class", "bar")
-				.style("height", function(d) {
-					var barHeight = d[0] * 5;
-					return barHeight + "px";});
+              	 		//svg.selectAll("div")
+				//.data(dataset)
+				//.enter()
+				//.append("div")
+				//.attr("class", "bar")
+				//.style("height", function(d) {
+					//var barHeight = d[0] * 5;
+					//return barHeight + "px";});
+	   d3.select("body").selectAll("div")
+    .data(dataset)  // <-- The answer is here!
+    .enter()
+    .append("div")
+    .attr("class", "bar")
+    .style("height", function(d) {
+        var barHeight = d * 5;
+        return barHeight + "px";
+    });
       //Create axis
      svg.append("g")
     .call(xAxis);
