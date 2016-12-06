@@ -2,30 +2,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
- <meta charset="utf-8">
-    <script type="text/javascript"  src="https://d3js.org/d3.v4.min.js"></script>
-	  <style type="text/css">
-		  </style>
-	</head>
-	<body>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     
-     <script type="text/javascript">
+    <script>
         // Set up on-load initialization
-        //d3.select(window).on('load');
+        d3.select(window).on('load', init);
         // Define data
-        
-	    
-	//Create SVG element
-	//var svg = d3.select("body")
-			//.append("svg")
-			//.attr("width", w)
-			//.attr("height", h);
-	 //Define axis    
-	 //var xAxis = d3.svg.axis()
-                  //.orient("bottom");
+        var dataset = d3.csv("example_1_-_station.csv", 
+                             
+                             function(data) {
+                dataset = data.map(function(d) { return [+d["metANN"],+d["YEAR"] ]; });
+                console.log(dataset[0]);
+                });
         
         // Initialiation function. Called after body has loaded
-      
+        function init() {
             
        
                 
@@ -37,53 +28,18 @@
                 //.attr('r','10px')
                 //.attr('cy', function(d){return ""+d[0]+"px";})
                 //.attr('cx', function(d){return ""+(2017-d[1])+"px";})
-          
-				//Create histo
     
-              	 		//svg.selectAll("div")
-				//.data(dataset)
-				//.enter()
-				//.append("div")
-				//.attr("class", "bar")
-				//.style("height", function(d) {
-					//var barHeight = d[0] * 5;
-					//return barHeight + "px";});
-	 var w = 500;
-			var h = 100;
-			var barPadding = 1;
-			
-			var dataset = d3.csv("example_1_-_station.csv", 
-                             
-                            
-                var dataset = data.map(function(d) { return [+d["metANN"],+d["YEAR"] ]; });
-                console.log(dataset[0]);
-                ;
-			
-			//Create SVG element
-			var svg = d3.select("body")
-						.append("svg")
-						.attr("width", w)
-						.attr("height", h);
-
-			svg.selectAll("rect")
-			   .data(dataset)
-			   .enter()
-			   .append("rect")
-			   .attr("x", function(d, i) {
-			   		return i * (w / dataset.length);
-			   })
-			   .attr("y", function(d) {
-			   		return h - (d * 4);
-			   })
-			   .attr("width", w / dataset.length - barPadding)
-			   .attr("height", function(d) {
-			   		return d * 4;
-			   });
-			
-      //Create axis
-     //svg.append("g")
-    //.call(xAxis);
-			
+                d3.select("body").selectAll("div")
+				.data(dataset)
+				.enter()
+				.append("div")
+				.attr("class", "bar")
+				.style("height", function(d) {
+					var barHeight = d[0] * 5;
+					return barHeight + "px";
+				});
+        }
+        
     
         
     </script>
