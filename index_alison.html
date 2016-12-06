@@ -31,8 +31,13 @@
           var xAxis = d3.svg.axis()
                   .scale(xScale)
                   .orient("bottom");
+	//Create SVG element
+		var svg = d3.select("body")
+			.append("svg")
+			.attr("width", w)
+			.attr("height", h);
     
-                d3.select("body").selectAll("div")
+              	svg.selectAll("div")
 				.data(dataset)
 				.enter()
 				.append("div")
