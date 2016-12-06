@@ -3,32 +3,42 @@
   <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     
-    <script type="text/javascript">
+    <script>
         // Set up on-load initialization
         d3.select(window).on('load', init);
 
         // Define data
-        var dataset = d3.csv("example_1_-_station.csv", function(data) {
+        var dataset = d3.csv("example 1 - station.csv", 
+                             
+                             function(data) {
                 dataset = data.map(function(d) { return [+d["metANN"],+d["YEAR"] ]; });
-                
+                console.log(dataset[0]);
                 });
-      // var numyears = array.apply(null, Array(dataset.length)).map(function (_, i) {return i;});
+        
 
         // Initialiation function. Called after body has loaded
         function init() {
             
        
                 
-                d3.select('#plotarea')
-                .selectAll('circle')
-                .data(dataset)
-                .enter()
-                .append('circle')
-                .attr('r','10px')
-                .attr('cy', function(d){return ""+d[0]+"px";})
-                .attr('cx', function(d){return ""+(2017-d[1])+"px";})
+                //d3.select('#plotarea')
+                //.selectAll('circle')
+                //.data(dataset)
+                //.enter()
+                //.append('circle')
+                //.attr('r','10px')
+                //.attr('cy', function(d){return ""+d[0]+"px";})
+                //.attr('cx', function(d){return ""+(2017-d[1])+"px";})
     
-      
+                d3.select("body").selectAll("div")
+				.data(dataset)
+				.enter()
+				.append("div")
+				.attr("class", "bar")
+				.style("height", function(d) {
+					var barHeight = d[0] * 5;
+					return barHeight + "px";
+				});
 
         }
         
@@ -38,17 +48,25 @@
     <meta charset="utf-8">
     <title>D3 Page Template</title>
     <style>
-      #plotarea {
-        width:auto;
-        height:auto;
-        border:1px solid grey;
-      }
-      #plotarea circle {
-        fill:red;
-      }
+        div.bar {
+				display: inline-block;
+				width: 20px;
+				height: 75px;	/* Gets overriden by D3-assigned height below */
+				margin-right: 2px;
+				background-color: teal;
+			}
+        
+      //#plotarea {
+        //width:auto;
+        //height:auto;
+        //border:1px solid grey;
+      //}
+      //#plotarea circle {
+        //fill:red;
+      //}
     </style>
   </head>
   <body>
-    <svg id="plotarea"></svg>
+    <!- <svg id="plotarea"></svg>
   </body>
 </html>
