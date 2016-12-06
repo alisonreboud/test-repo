@@ -23,7 +23,7 @@ var svg = d3.select("svg"),
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var parseTime = d3.timeParse("%d-%b-%y");
+//var parseTime = d3.timeParse("%d-%b-%y");
 
 var x = d3.scaleTime()
     .rangeRound([0, width]);
@@ -36,7 +36,7 @@ var line = d3.line()
     .y(function(d) { return y(d.metANN); });
 
 d3.csv("example_1_-_station.csv", function(d) {
-  d.YEAR = parseTime(d.YEAR);
+  d.YEAR = d.YEAR;
   d.metANN = +d.metANN;
   return d;
 }, function(error, data) {
@@ -59,7 +59,7 @@ d3.csv("example_1_-_station.csv", function(d) {
       .attr("y", 6)
       .attr("dy", "0.71em")
       .style("text-anchor", "end")
-      .text("Price ($)");
+      .text("Annual Mean Temperatures (degrees celsius)");
 
   g.append("path")
       .datum(data)
