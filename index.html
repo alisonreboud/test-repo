@@ -8,10 +8,11 @@
         d3.select(window).on('load', init);
 
         // Define data
-        var dataset = d3.csv("example_1_-_station.csv", 
+        var dataset = d3.csv("example 1 - station.csv", 
                              
                              function(data) {
                 dataset = data.map(function(d) { return [+d["metANN"],+d["YEAR"] ]; });
+                //dataset = dataset.slice(0, 25)
                 console.log(dataset[0]);
                 });
         
@@ -21,14 +22,14 @@
             
        
                 
-                //d3.select('#plotarea')
-                //.selectAll('circle')
-                //.data(dataset)
-                //.enter()
-                //.append('circle')
-                //.attr('r','10px')
-                //.attr('cy', function(d){return ""+d[0]+"px";})
-                //.attr('cx', function(d){return ""+(2017-d[1])+"px";})
+                d3.select('#plotarea')
+                .selectAll('circle')
+                .data(dataset)
+                .enter()
+                .append('circle')
+                .attr('r','10px')
+                .attr('cy', function(d){return ""+d[0]+"px";})
+                .attr('cx', function(d){return ""+(2017-d[1])+"px";})
     
                 d3.select("body").selectAll("div")
 				.data(dataset)
@@ -36,9 +37,21 @@
 				.append("div")
 				.attr("class", "bar")
 				.style("height", function(d) {
-					var barHeight = d[0] * 5;
-					return barHeight + "px";
-				});
+                    var barHeight = d[0] * 15
+                    if (d[0] > 100) {
+                    var barHeight = 0    
+                    }
+					return barHeight + "px";})
+                .style("width", function(d) {
+					var barWidth = 80;
+					return barWidth + "px";})
+                .text(function (d) { return d[1];});
+                   
+            
+            
+            
+                    
+				
 
         }
         
@@ -52,8 +65,11 @@
 				display: inline-block;
 				width: 20px;
 				height: 75px;	/* Gets overriden by D3-assigned height below */
-				margin-right: 2px;
+				margin-right: 5px;
+                margin-bottom:10px;
 				background-color: teal;
+                color:white;
+                
 			}
         
       //#plotarea {
@@ -68,5 +84,6 @@
   </head>
   <body>
     <!- <svg id="plotarea"></svg>
+      
   </body>
 </html>
