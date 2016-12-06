@@ -39,6 +39,7 @@
 					var barHeight = d[0] * 5;
 					return barHeight + "px";
 				});
+		 }
 		g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")”)
 g.append("g")
 .attr("class", "axis axis--x")
@@ -46,7 +47,7 @@ g.append("g")
 .call(d3.axisBottom(x));
 ;
 
-        }
+       
         
     
         
