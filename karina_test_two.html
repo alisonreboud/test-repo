@@ -23,7 +23,7 @@ var svg = d3.select("svg"),
 
 var x = d3.scaleLinear()
     .rangeRound([0, width])
-    //.tickFormat(d3.format("d"));
+    .tickFormat(d3.format("d"));
 var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 var line = d3.line()
