@@ -8,7 +8,7 @@
         d3.select(window).on('load', init);
 
         // Define data
-        var dataset = d3.csv("example 1 - station.csv", 
+        var dataset = d3.csv("example_1_-_station.csv", 
                              
                              function(data) {
                 dataset = data.map(function(d) { return [+d["metANN"],+d["YEAR"] ]; });
