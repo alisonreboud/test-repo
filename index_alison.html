@@ -9,7 +9,7 @@
         d3.select(window).on('load', init);
         // Define data
         var dataset = d3.csv("example_1_-_station.csv", 
-	var svg = d3.select("svg”),
+	
                              
                              function(data) {
                 dataset = data.map(function(d) { return [+d["metANN"],+d["YEAR"] ]; });
@@ -40,6 +40,8 @@
 					return barHeight + "px";
 				});
 		 }
+	    
+	    var svg = d3.select("svg”),
 		g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")”)
 g.append("g")
 .attr("class", "axis axis--x")
