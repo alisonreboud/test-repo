@@ -59,8 +59,7 @@
    	           .attr("width", w / dataset.length - barPadding)
    	           .attr("height", 100)
 		   .attr("x", function(d, i) {
-		       return i * (w / dataset.length); //Bar width of (w / dataset.length) plus 1 for padding
-		   })
+		       return i * (w / dataset.length)})
 
 
         }
