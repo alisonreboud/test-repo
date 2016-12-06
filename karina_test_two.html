@@ -47,8 +47,8 @@ d3.csv("example_1_-_station.csv", function(d) {
   y.domain(d3.extent(data, function(d) { if (d.metANN > 100) {
         return 0;
     } else {
-        return = d.metANN;
-    } }));
+        return d.metANN;
+    }; }));
   
   
 
