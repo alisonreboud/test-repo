@@ -3,8 +3,9 @@ Question 1:
 First visualisation is using code from here - https://bl.ocks.org/mbostock/3883245
 
 Question 2:
-
-Method:
+Motivation :  
+Method (data set description and preparation): 
+results/discussion, and your conclusions. 
 Question 3 : 
 
 
@@ -21,6 +22,8 @@ http://www.bloomberg.com/graphics/2015-whats-warming-the-world/
 
 
 http://projects.fivethirtyeight.com/complete-history-of-the-nfl/#chi : a dynamical display where you can select the city you're interested in 
+
+http://hint.fm/wind/ : a dynamical display of winds movements in the USA. 
 
 
 3)How big data sets are reasonable to load in d3 visualizations? What types of visualizations does a limit like that exclude? Give examples of visualizations that must be based on large data sets and discuss how they deal with this. Could you have reduced the size of the data sets in this assignment. 
