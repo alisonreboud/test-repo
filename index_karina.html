@@ -61,11 +61,9 @@
 		   .attr("x", function(d, i) {
 		       return i * (w / dataset.length)})
 		   .attr("y", function(d) {
-		       return h - d; //Height minus data value
-		   })
+		       return h - d})
 		   .attr("height", function(d) {
-		       return d; //Just the data value
-		   })
+		       return d})
 
         }
         
