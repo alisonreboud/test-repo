@@ -14,6 +14,10 @@
                 dataset = data.map(function(d) { return [+d["metANN"],+d["YEAR"] ]; });
                 console.log(dataset[0]);
                 });
+	    
+	 var xAxis = d3.svg.axis()
+                  .scale(xScale)
+                  .orient("bottom");
         
         // Initialiation function. Called after body has loaded
         function init() {
@@ -28,28 +32,22 @@
                 //.attr('r','10px')
                 //.attr('cy', function(d){return ""+d[0]+"px";})
                 //.attr('cx', function(d){return ""+(2017-d[1])+"px";})
-          var xAxis = d3.svg.axis()
-                  .scale(xScale)
-                  .orient("bottom");
-	//Create SVG element
-		var svg = d3.select("body")
-			.append("svg")
-			.attr("width", w)
-			.attr("height", h);
+          
+	
     
-              	svg.selectAll("div")
+              	 		d3.select("body").selectAll("div")
 				.data(dataset)
 				.enter()
 				.append("div")
 				.attr("class", "bar")
 				.style("height", function(d) {
 					var barHeight = d[0] * 5;
-					return barHeight + "px";
-         svg.append("g")
-    .call(xAxis);
-				});
+					return barHeight + "px";});
         }
         
+	    d3.append("g")
+    .call(xAxis);
+			
     
         
     </script>
