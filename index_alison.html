@@ -15,6 +15,12 @@
                 console.log(dataset[0]);
                 });
 	    
+	//Create SVG element
+	var svg = d3.select("body")
+			.append("svg")
+			.attr("width", w)
+			.attr("height", h);
+	    
 	 var xAxis = d3.svg.axis()
                   .scale(xScale)
                   .orient("bottom");
@@ -45,7 +51,7 @@
 					return barHeight + "px";});
         }
         
-	    d3.append("g")
+	    svg.append("g")
     .call(xAxis);
 			
     
