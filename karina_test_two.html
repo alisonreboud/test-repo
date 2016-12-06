@@ -44,7 +44,13 @@ d3.csv("example_1_-_station.csv", function(d) {
   if (error) throw error;
 
   x.domain(d3.extent(data, function(d) { return d.YEAR; }));
-  y.domain(d3.extent(data, function(d) { return d.metANN; }));
+  y.domain(d3.extent(data, function(d) { if (d.metANN > 100) {
+        return 0;
+    } else {
+        return = d.metANN;
+    } }));
+  
+  
 
   g.append("g")
       .attr("class", "axis axis--x")
