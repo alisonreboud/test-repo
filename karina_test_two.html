@@ -53,6 +53,13 @@ d3.csv("example_1_-_station.csv", function(d) {
       .attr("dy", "0.71em")
       .style("text-anchor", "end")
       .text("Year");
+  g.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Geneva Annual Mean Temperatures Graph");
   g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y))
