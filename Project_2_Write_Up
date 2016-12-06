@@ -5,3 +5,29 @@ First visualisation is using code from here - https://bl.ocks.org/mbostock/38832
 Question 2:
 
 Method:
+Question 3 : 
+
+
+Individual part: Answer one of these questions (but not one answered by your group-mates). Remember to indicate who wrote what. 
+1) Which data set (that is realistically possible for you to obtain) and visualization would you include to give a more confident answer to the articles main question? A mockup is welcome. 
+Factors included in the definitin of weathr : heat or cold, wetness or dryness, calm or storm, clearness or cloudiness
+https://enthusiasmscepticismscience.wordpress.com/global-temperature-graphs/graph_ipcc2007_wg1ts_ts6_bottom/ ( for comparisons of evolution in temperature with natural vs human factors) 
+
+
+
+
+2) So far we've only taught static visualizations. Which dynamic elements or interactions could improve your article? A mockup is welcome. 
+http://www.bloomberg.com/graphics/2015-whats-warming-the-world/
+
+
+http://projects.fivethirtyeight.com/complete-history-of-the-nfl/#chi : a dynamical display where you can select the city you're interested in 
+
+
+3)How big data sets are reasonable to load in d3 visualizations? What types of visualizations does a limit like that exclude? Give examples of visualizations that must be based on large data sets and discuss how they deal with this. Could you have reduced the size of the data sets in this assignment. 
+SVG performance varies across browsers and devices, but they all have their limits. Limit : several thousand SVG elements? It excludes big datasets taking into analysing for example purchases around the world for a worlwide company, or data about trasnpoirtation incorporating all the data available from travelling cards in major cities such as London
+at least in real time. For research purpose can find solutions. We have reduced the size of the data set by take only in consideration only the yearly mean. 
+If so, SVG complexity is a possible culprit.
+
+Solutions : Remove non-essential elements (e.g. group elements)
+
+Crossfilter is a JavaScript library for exploring large multivariate datasets in the browser. Crossfilter supports extremely fast (<30ms) interaction with coordinated views, even with datasets containing a million or more records
