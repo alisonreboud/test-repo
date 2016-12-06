@@ -1,13 +1,84 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    
+    <script>
+        // Set up on-load initialization
+        d3.select(window).on('load', init);
+
+        // Define data
+        var dataset = [];
+        var dataset0 = d3.csv("example_1_-_station.csv", 
+                             
+                             function(data) {
+                dataset0 = data.map(function(d) { return [+d["metANN"],+d["YEAR"] ]; });
+                //dataset = dataset.slice(0, 25)
+                for (i = 0; i < dataset0.length; i=i+9) {
+                dataset.push(dataset0[i]);
+                }   
+                console.log(dataset);
+                });
+        
+        
+       
+       
+       
+        
+
+        // Initialiation function. Called after body has loaded
+        function init() {
+
+                d3.select("body").selectAll("div")
+				.data(dataset)
+				.enter()
+				.append("div")
+				.attr("class", "bar")
+				.style("height", function(d) {
+                    var barHeight = d[0] * 50
+                    if (d[0] > 100) {
+                    var barHeight = 0    
+                    }
+					return barHeight + "px";})
+                .text(function(d) { return d[0]+"C";})
+
+                
+                .append('p')
+                .text(function(d) { return d[1];})
+        }
+        
+    
+        
+    </script>
+    <meta charset="utf-8">
     <title>D3 Page Template</title>
-    d3.csv("project2stationdata.csv", function(data) {
-  console.log(data[0]);
-});
+    <style>
+        div.bar {
+				display: inline-block;
+				width: 80px;
+				height: 75px;	/* Gets overriden by D3-assigned height below */
+				margin-right: 4px;
+                margin-bottom:5px;
+				background-color: cadetblue;
+                color:white;
+                vertical-align: bottom;
+                text-align:center;
+            
+                
+			}
+        
+        
+      //#plotarea {
+        //width:auto;
+        //height:auto;
+        //border:1px solid grey;
+      //}
+      //#plotarea circle {
+        //fill:red;
+      //}
+    </style>
   </head>
   <body>
+      <h2>Average Temperature in Geneva 1880-2015 (9-year steps displayed) </h2>
   </body>
 </html>
