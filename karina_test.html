@@ -17,9 +17,8 @@
 			var barPadding = 1;
 			
 			var dataset = d3.csv("example_1_-_station.csv", function(data) {
-                	    dataset = data.map(function(d) { return [+d["metANN"],+d["YEAR"] ]; });
-                	    console.log(dataset[0]);
-                });
+        				  console.log(dataset[0]);
+                	});
 			
 			//Create SVG element
 			var svg = d3.select("body")
