@@ -6,7 +6,7 @@
     
     <script>
         // Set up on-load initialization
-        //d3.select(window).on('load', init);
+        d3.select(window).on('load', init);
         // Define data
         var dataset = d3.csv("example_1_-_station.csv", 
                              
@@ -16,7 +16,7 @@
                 });
         
         // Initialiation function. Called after body has loaded
-        //function init() {
+        function init() {
             
        
                 
@@ -38,8 +38,9 @@
 					var barHeight = d[0] * 5;
 					return barHeight + "px";
 				});
-        //}
-     
+        }
+        
+    
         
     </script>
     <meta charset="utf-8">
