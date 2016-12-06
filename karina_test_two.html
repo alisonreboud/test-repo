@@ -22,12 +22,6 @@ var svg = d3.select("svg"),
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
 
-                  //  var barHeight = d[0] * 15
-                  //  if (d[0] > 100) {
-                  //  var barHeight = 0    
-                  //  }
-				//	return barHeight + "px";})
-
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 //var parseTime = d3.timeParse("%d-%b-%y");
@@ -43,7 +37,7 @@ var line = d3.line()
     .y(function(d) { return y(d.metANN); });
 
 d3.csv("example_1_-_station.csv", function(d) {
-  d.YEAR = d.YEAR;
+  d.YEAR = +d.YEAR;
   d.metANN = +d.metANN;
   return d;
 }, function(error, data) {
