@@ -31,10 +31,14 @@ var x = d3.scaleTime()
 
 var y = d3.scaleLinear()
     .rangeRound([height, 0]);
-
+  
 var line = d3.line()
     .x(function(d) { return x(d.YEAR); })
-    .y(function(d) { return y(d.metANN); });
+    .y(function(d) { if (d.metANN > 100) {
+        return y(0);
+    } else {
+        return y(d.metANN);
+    }; });
 
 d3.csv("example_1_-_station.csv", function(d) {
   d.YEAR = +d.YEAR;
