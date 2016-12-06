@@ -27,7 +27,8 @@ var svg = d3.select("svg"),
 //var parseTime = d3.timeParse("%d-%b-%y");
 
 var x = d3.scaleTime()
-    .rangeRound([0, width]);
+    .rangeRound([0, width])
+    .toString();
 
 var y = d3.scaleLinear()
     .rangeRound([height, 0]);
@@ -41,7 +42,7 @@ var line = d3.line()
     }; });
 
 d3.csv("example_1_-_station.csv", function(d) {
-  d.YEAR = d.YEAR.toString();
+  d.YEAR = d.YEAR;
   d.metANN = +d.metANN;
   return d;
 }, function(error, data) {
@@ -65,7 +66,7 @@ d3.csv("example_1_-_station.csv", function(d) {
       //.attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", "0.71em")
-      .style("text-anchor", "end")
+      .style("text-anchor", "middle")
       .text("Year");
 
   g.append("g")
