@@ -60,7 +60,12 @@
    	           .attr("height", 100)
 		   .attr("x", function(d, i) {
 		       return i * (w / dataset.length)})
-
+		   .attr("y", function(d) {
+		       return h - d; //Height minus data value
+		   })
+		   .attr("height", function(d) {
+		       return d; //Just the data value
+		   })
 
         }
         
