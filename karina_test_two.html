@@ -52,12 +52,13 @@ d3.csv("example_1_-_station.csv", function(d) {
       .attr("y", 25)
       .attr("dy", "0.71em")
       .style("text-anchor", "end")
+      .style("font-size", "14px") 
       .text("Year");
   g.append("text")
         .attr("x", (width / 2))             
         .attr("y", 0 - (margin.top / 2))
         .attr("text-anchor", "middle")  
-        .style("font-size", "16px") 
+        .style("font-size", "20px") 
         .style("text-decoration", "underline")  
         .text("Geneva Annual Mean Temperatures Graph");
   g.append("g")
@@ -69,6 +70,7 @@ d3.csv("example_1_-_station.csv", function(d) {
       .attr("y", -35)
       .attr("dy", "0.71em")
       .style("text-anchor", "end")
+      .style("font-size", "14px") 
       .text("Annual Mean Temperatures (degrees celsius)");
   g.append("path")
       .datum(data)
