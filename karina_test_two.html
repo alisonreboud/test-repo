@@ -41,7 +41,7 @@ var line = d3.line()
     }; });
 
 d3.csv("example_1_-_station.csv", function(d) {
-  d.YEAR = +d.YEAR;
+  d.YEAR = d.YEAR.toString();
   d.metANN = +d.metANN;
   return d;
 }, function(error, data) {
