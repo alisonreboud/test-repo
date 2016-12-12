@@ -3,11 +3,21 @@
   <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <meta charset="utf-8">
+    <style>
+    .links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
     <title>Assignment 3</title>
     <script> 
     // Set up on-load initialization
 d3.select(window).on('load', init);
-
+</style>
 // Define nodes
 var nodes = [{'id': 'Michael JAnderson'},
              {'id':'Frances Bay'},
