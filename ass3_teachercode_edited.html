@@ -60,7 +60,7 @@ function init(){
               .attr('height', h);
 
   // Create force simulation - only define force types at this point
-  var simulation = 
+  /*var simulation = 
     d3.forceSimulation()
       // This defines a force linking specific nodes 
       //   - the actual links are specified below
@@ -68,7 +68,7 @@ function init(){
       // This force causes nice separation between nodes
       .force("charge", d3.forceManyBody())
       // This force centers the nodes to the middle of the view
-      .force("center", d3.forceCenter(w / 2, h / 2));
+      .force("center", d3.forceCenter(w / 2, h / 2));*/
 
   var nodesByName = {};
 
@@ -95,12 +95,12 @@ function init(){
       .attr("r", 4.5)
       .call(force.drag);
 
-  /*// Start the force layout.
+  // Start the force layout.
   force
       .nodes(nodes)
       .links(links)
       .on("tick", tick)
-      .start();*/
+      .start();
       
   /*// Create link elements
   var link = 
