@@ -178,7 +178,9 @@ var simulation = d3.forceSimulation()
     .selectAll("line")
     .data(links)
     .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+      .attr("stroke-width", function(d) { return Math.sqrt(d.value); })
+      .attr("fill", function(d) { return color(d.group); })
+  ;
 
   var node = svg.append("g")
       .attr("class", "nodes")
