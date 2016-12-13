@@ -1,46 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Insert bar chart tab title</title>
-      <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-		<style type="text/css">
-			/* No style rules here yet */		
-		</style>
-	</head>
-	<body>
-		<script type="text/javascript">
-
-			//Width and height
-			var w = 500;
-			var h = 100;
-			var barPadding = 1;
-			
-			var dataset = d3.csv("example_1_-_station.csv", function(data) {
-        				  console.log(data);
-                	});
-			
-			//Create SVG element
-			var svg = d3.select("body")
-						.append("svg")
-						.attr("width", w)
-						.attr("height", h);
-
-			svg.selectAll("rect")
-			   .data(dataset)
-			   .enter()
-			   .append("rect")
-			   .attr("x", function(d, i) {
-			   		return i * (w / dataset.length);
-			   })
-			   .attr("y", function(d) {
-			   		return h - (d * 4);
-			   })
-			   .attr("width", w / dataset.length - barPadding)
-			   .attr("height", function(d) {
-			   		return d * 4;
-			   });
-			
-		</script>
-	</body>
-</html>
+<meta charset="utf-8">
+<style>
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+</style>
+<svg width="960" height="600"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+// Define nodes
+var nodes = [{'id': 'Michael J. Anderson',"group": 1},
+             {'id':'Frances Bay',"group": 1},
+             {'id':'Scott Coffey',"group": 1},
+             {'id':'Catherine E. Coulson',"group": 2},
+             {'id':'Laura Dern',"group": 2},
+             {'id':'Miguel Ferrer',"group": 1},
+             {'id':'Laura Harring',"group": 2},
+             {'id':'Freddie Jones',"group": 1},
+             {'id':'Sheryl Lee',"group": 2},
+             {'id':'Kyle MacLachlan', "group": 1},
+             {'id':'Everett McGill',"group": 1},
+             {'id':'Jack Nance',"group": 1},
+             {'id':'Harry Dean Stanton',"group": 1},
+             {'id':'Naomi Watts',"group": 2},
+             {'id':'Alicia Witt',"group": 2},
+             {'id':'Grace Zabriskie', "group": 2}]
+// Define edges
+var links = 
+    [{ source: "Michael J. Anderson", target: "Frances Bay", value: 2},
+{ source: "Michael J. Anderson", target: "Scott Coffey", value: 3},
+{ source: "Michael J. Anderson", target: "Catherine E. Coulson", value: 2},
+{ source: "Michael J. Anderson", target: "Laura Dern", value: 1},
+{ source: "Michael J. Anderson", target: "Miguel Ferrer", value: 2},
+{ source: "Michael J. Anderson", target: "Laura Harring", value: 1},
+{ source: "Michael J. Anderson", target: "Freddie Jones", value: 0},
+{ source: "Michael J. Anderson", target: "Sheryl Lee", value: 2},
+{ source: "Michael J. Anderson", target: "Kyle MacLachlan", value: 2},
+{ source: "Michael J. Anderson", target: "Everett McGill", value: 1},
+{ source: "Michael J. Anderson", target: "Jack Nance", value: 1},
+{ source: "Michael J. Anderson", target: "Harry Dean Stanton", value: 1},
+{ source: "Michael J. Anderson", target: "Naomi Watts", value: 1},
+{ source: "Michael J. Anderson", target: "Alicia Witt", value: 1},
+{ source: "Michael J. Anderson", target: "Grace Zabriskie", value: 2},
+{ source: "Frances Bay", target: "Scott Coffey", value: 1},
+{ source: "Frances Bay", target: "Catherine E. Coulson", value: 2},
+{ source: "Frances Bay", target: "Laura Dern", value: 2},
+{ source: "Frances Bay", target: "Miguel Ferrer", value: 2},
+{ source: "Frances Bay", target: "Laura Harring", value: 0},
+{ source: "Frances Bay", target: "Freddie Jones", value: 1},
+{ source: "Frances Bay", target: "Sheryl Lee", value: 2},
+{ source: "Frances Bay", target: "Kyle MacLachlan", value: 3},
+{ source: "Frances Bay", target: "Everett McGill", value: 1},
+{ source: "Frances Bay", target: "Jack Nance", value: 3},
+{ source: "Frances Bay", target: "Harry Dean Stanton", value: 2},
+{ source: "Frances Bay", target: "Naomi Watts", value: 0},
+{ source: "Frances Bay", target: "Alicia Witt", value: 1},
+{ source: "Frances Bay", target: "Grace Zabriskie", value: 3},
+{ source: "Scott Coffey", target: "Catherine E. Coulson", value: 0},
+{ source: "Scott Coffey", target: "Laura Dern", value: 2},
+{ source: "Scott Coffey", target: "Miguel Ferrer", value: 0},
+{ source: "Scott Coffey", target: "Laura Harring", value: 1},
+{ source: "Scott Coffey", target: "Freddie Jones", value: 0},
+{ source: "Scott Coffey", target: "Sheryl Lee", value: 3},
+{ source: "Scott Coffey", target: "Kyle MacLachlan", value: 1},
+{ source: "Scott Coffey", target: "Everett McGill", value: 0},
+{ source: "Scott Coffey", target: "Jack Nance", value: 2},
+{ source: "Scott Coffey", target: "Harry Dean Stanton", value: 2},
+{ source: "Scott Coffey", target: "Naomi Watts", value: 3},
+{ source: "Scott Coffey", target: "Alicia Witt", value: 0},
+{ source: "Scott Coffey", target: "Grace Zabriskie", value: 2},
+{ source: "Catherine E. Coulson", target: "Laura Dern", value: 0},
+{ source: "Catherine E. Coulson", target: "Miguel Ferrer", value: 2},
+{ source: "Catherine E. Coulson", target: "Laura Harring", value: 0},
+{ source: "Catherine E. Coulson", target: "Freddie Jones", value: 0},
+{ source: "Catherine E. Coulson", target: "Sheryl Lee", value: 2},
+{ source: "Catherine E. Coulson", target: "Kyle MacLachlan", value: 2},
+{ source: "Catherine E. Coulson", target: "Everett McGill", value: 1},
+{ source: "Catherine E. Coulson", target: "Jack Nance", value: 1},
+{ source: "Catherine E. Coulson", target: "Harry Dean Stanton", value: 1},
+{ source: "Catherine E. Coulson", target: "Naomi Watts", value: 0},
+{ source: "Catherine E. Coulson", target: "Alicia Witt", value: 1},
+{ source: "Catherine E. Coulson", target: "Grace Zabriskie", value: 2},
+{ source: "Laura Dern", target: "Miguel Ferrer", value: 0},
+{ source: "Laura Dern", target: "Laura Harring", value: 1},
+{ source: "Laura Dern", target: "Freddie Jones", value: 1},
+{ source: "Laura Dern", target: "Sheryl Lee", value: 1},
+{ source: "Laura Dern", target: "Kyle MacLachlan", value: 1},
+{ source: "Laura Dern", target: "Everett McGill", value: 0},
+{ source: "Laura Dern", target: "Jack Nance", value: 2},
+{ source: "Laura Dern", target: "Harry Dean Stanton", value: 2},
+{ source: "Laura Dern", target: "Naomi Watts", value: 1},
+{ source: "Laura Dern", target: "Alicia Witt", value: 0},
+{ source: "Laura Dern", target: "Grace Zabriskie", value: 2},
+{ source: "Miguel Ferrer", target: "Laura Harring", value: 0},
+{ source: "Miguel Ferrer", target: "Freddie Jones", value: 1},
+{ source: "Miguel Ferrer", target: "Sheryl Lee", value: 2},
+{ source: "Miguel Ferrer", target: "Kyle MacLachlan", value: 2},
+{ source: "Miguel Ferrer", target: "Everett McGill", value: 1},
+{ source: "Miguel Ferrer", target: "Jack Nance", value: 1},
+{ source: "Miguel Ferrer", target: "Harry Dean Stanton", value: 1},
+{ source: "Miguel Ferrer", target: "Naomi Watts", value: 0},
+{ source: "Miguel Ferrer", target: "Alicia Witt", value: 1},
+{ source: "Miguel Ferrer", target: "Grace Zabriskie", value: 2},
+{ source: "Laura Harring", target: "Freddie Jones", value: 0},
+{ source: "Laura Harring", target: "Sheryl Lee", value: 0},
+{ source: "Laura Harring", target: "Kyle MacLachlan", value: 0},
+{ source: "Laura Harring", target: "Everett McGill", value: 0},
+{ source: "Laura Harring", target: "Jack Nance", value: 0},
+{ source: "Laura Harring", target: "Harry Dean Stanton", value: 1},
+{ source: "Laura Harring", target: "Naomi Watts", value: 3},
+{ source: "Laura Harring", target: "Alicia Witt", value: 0},
+{ source: "Laura Harring", target: "Grace Zabriskie", value: 1},
+{ source: "Freddie Jones", target: "Sheryl Lee", value: 1},
+{ source: "Freddie Jones", target: "Kyle MacLachlan", value: 1},
+{ source: "Freddie Jones", target: "Everett McGill", value: 1},
+{ source: "Freddie Jones", target: "Jack Nance", value: 2},
+{ source: "Freddie Jones", target: "Harry Dean Stanton", value: 2},
+{ source: "Freddie Jones", target: "Naomi Watts", value: 0},
+{ source: "Freddie Jones", target: "Alicia Witt", value: 2},
+{ source: "Freddie Jones", target: "Grace Zabriskie", value: 1},
+{ source: "Sheryl Lee", target: "Kyle MacLachlan", value: 2},
+{ source: "Sheryl Lee", target: "Everett McGill", value: 1},
+{ source: "Sheryl Lee", target: "Jack Nance", value: 2},
+{ source: "Sheryl Lee", target: "Harry Dean Stanton", value: 2},
+{ source: "Sheryl Lee", target: "Naomi Watts", value: 0},
+{ source: "Sheryl Lee", target: "Alicia Witt", value: 1},
+{ source: "Sheryl Lee", target: "Grace Zabriskie", value: 3},
+{ source: "Kyle MacLachlan", target: "Everett McGill", value: 2},
+{ source: "Kyle MacLachlan", target: "Jack Nance", value: 3},
+{ source: "Kyle MacLachlan", target: "Harry Dean Stanton", value: 1},
+{ source: "Kyle MacLachlan", target: "Naomi Watts", value: 0},
+{ source: "Kyle MacLachlan", target: "Alicia Witt", value: 2},
+{ source: "Kyle MacLachlan", target: "Grace Zabriskie", value: 2},
+{ source: "Everett McGill", target: "Jack Nance", value: 2},
+{ source: "Everett McGill", target: "Harry Dean Stanton", value: 1},
+{ source: "Everett McGill", target: "Naomi Watts", value: 0},
+{ source: "Everett McGill", target: "Alicia Witt", value: 2},
+{ source: "Everett McGill", target: "Grace Zabriskie", value: 1},
+{ source: "Jack Nance", target: "Harry Dean Stanton", value: 2},
+{ source: "Jack Nance", target: "Naomi Watts", value: 0},
+{ source: "Jack Nance", target: "Alicia Witt", value: 2},
+{ source: "Jack Nance", target: "Grace Zabriskie", value: 2},
+{ source: "Harry Dean Stanton", target: "Naomi Watts", value: 1},
+{ source: "Harry Dean Stanton", target: "Alicia Witt", value: 1},
+{ source: "Harry Dean Stanton", target: "Grace Zabriskie", value: 3},
+{ source: "Naomi Watts", target: "Alicia Witt", value: 0},
+{ source: "Naomi Watts", target: "Grace Zabriskie", value: 1},
+{ source: "Alicia Witt", target: "Grace Zabriskie", value: 1}]
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+var color = d3.scaleOrdinal(d3.schemeCategory20);
+var simulation = d3.forceSimulation()
+    .force("link", d3.forceLink().id(function(d) { return d.id; }))
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(width / 2 , height / 2));
+  var link = svg.append("g")
+      .attr("class", "links")
+    .selectAll("line")
+    .data(links)
+    .enter().append("line")
+      .attr("stroke-width", function(d) { return Math.sqrt(d.value); })
+      .attr("fill", function(d) { return color(d.value); })
+  ;
+  var node = svg.append("g")
+      .attr("class", "nodes")
+    .selectAll("circle")
+    .data(nodes)
+    .enter().append("circle")
+      .attr("r", 5)
+      .attr("fill", function(d) { return color(d.group); })
+      .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+  node.append("title")
+      .text(function(d) { return d.id; });
+  simulation
+      .nodes(nodes)
+      .on("tick", ticked);
+  simulation.force("link")
+      .links(links);
+  function ticked() {
+    link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+    node
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+  }
+function dragstarted(d) {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+function dragended(d) {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+</script>
