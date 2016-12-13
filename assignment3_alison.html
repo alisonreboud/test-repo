@@ -167,7 +167,7 @@ var svg = d3.select("svg"),
     height = +svg.attr("height");
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
- //var colorbis= d3.scale.category20b();
+var colorbis= d3.scaleOrdinal(d3.schemeCategory20b);
 
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
@@ -182,7 +182,7 @@ var simulation = d3.forceSimulation()
     .data(links)
     .enter().append("line")
       .attr("stroke-width", function(d) { return Math.sqrt(d.value); })
-      .attr("stroke", function(d) { return color(d.value); })
+      .attr("stroke", function(d) { return colorbis(d.value); })
   ;
 
   var node = svg.append("g")
