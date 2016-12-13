@@ -17,7 +17,16 @@
     <title>Assignment 3</title>
     <script> 
     // Set up on-load initialization
+
 d3.select(window).on('load', init);
+
+ var links= d3.csv(
+    'Assignment3_data - Feuille 1.csv', 
+    function(error, data) {
+      if (error) throw error;
+      console.log(data);
+    });
+
 
 // Define nodes
 var nodes = [{'id': 'Michael J.Anderson'},
@@ -37,66 +46,8 @@ var nodes = [{'id': 'Michael J.Anderson'},
              {'id':'Alicia Witt'},
              {'id':'Grace Zabriskie'}]
 
-// Define edges
-var links  = [{ 'source' : "Michael J.Anderson" ,"target": "Frances Bay" , "value": "2"},
-     { "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"}]
-    //{ "source": "Michael J.Anderson", "target": "Catherine E.Coulson", "value": "1"},
- //{ "source": "Michael J.Anderson", "target": "Laura Dern": "1"},
- //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},            
-   //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},
-   //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},
-               //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},
-               //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},
-               //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},
-               //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},
-               //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},
-               //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},
-               //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},
-               //{ "source": "Michael J.Anderson", "target": "Scott Coffey", "value": "1"},
-              
-          
-    //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-    //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-    //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-            //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-              //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-              //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-              //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-              //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-              //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-              //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-              //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-              //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-              //{ "source": "Frances Bay", "target": "Scott Coffey", "value": "1"},
-           
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},             
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},             
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},              
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},              
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},
-              
-              
-              
- //{ "source": "Scott Coffey", "target": "Scott Coffey", "value": "1"},
-            
-              
-              
-              
-              
-              
-             ]
 
 
-// Initialiation function. Called after body has loaded
-function init(){
   
   // Setup svg
   var w = 400;
@@ -120,7 +71,7 @@ function init(){
   // Create link elements
   var link = 
       svg.append("g")
-         .attr("class", "links")
+         //.attr("class", "links")
          .selectAll("line")
          .data(links)
          .enter()
