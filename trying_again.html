@@ -212,7 +212,7 @@ function init(){
          .selectAll("circle")
          .data(nodes)
          .enter().append("circle")
-         .attr("r", 5)
+         .attr("r", 15)
          .attr("fill", function(d) { return color(d.group); })
   node.append("title")
       .text(function(d) { return d.id; });
