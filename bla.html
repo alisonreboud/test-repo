@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <meta charset="utf-8">
+    <style>
+    .links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+   </style>
+    <title>Assignment 3</title>
+    <script> 
+    // Set up on-load initialization
+d3.select(window).on('load', init);
+ var links= d3.csv(
+    'Assignment3_data - Feuille 1.csv', 
+    function(error, data) {
+      if (error) throw error;
+      console.log(data);
+    });
+// Define nodes
+var nodes = [{'id': 'Michael J.Anderson'},
+             {'id':'Frances Bay'},
+             {'id':'Scott Coffey'},
+             {'id':'Catherine E.Coulson'},
+             {'id':'Laura Dern'},
+             {'id':'Miguel Ferrer'},
+             {'id':'Laura Harring'},
+             {'id':'Freddie Jones'},
+             {'id':'Sheryl Lee'},
+             {'id':'Kyle MacLachlan'},
+             {'id':'Everett Mc Gill'},
+             {'id':'Jack Nance'},
+             {'id':'Harry Dean Stanton'},
+             {'id':'Naomi Watts'},
+             {'id':'Alicia Witt'},
+             {'id':'Grace Zabriskie'}]
+  
+  // Setup svg
+  var w = 400;
+  var h = 400;
+  var svg = d3.select('body')
+              .append('svg')
+              .attr('width', w)
+              .attr('height', h);
+  // Create force simulation - only define force types at this point
+  var simulation = 
+    d3.forceSimulation()
+      // This defines a force linking specific nodes 
+      //   - the actual links are specified below
+      .force("link", d3.forceLink().id(function(d) { return d.id; }))
+      // This force causes nice separation between nodes
+      .force("charge", d3.forceManyBody())
+      // This force centers the nodes to the middle of the view
+      .force("center", d3.forceCenter(w / 2, h / 2));
+  // Create link elements
+  var link = 
+      svg.append("g")
+         //.attr("class", "links")
+         .selectAll("line")
+         .data(links)
+         .enter()
+         .append("line")
+         .attr("stroke-width", function(d) { 
+           return Math.sqrt(d.value); 
+         });
+  
+  // Create node elements
+  var node = 
+      svg.append("g")
+         .attr("class", "nodes")
+         .selectAll("circle")
+         .data(nodes)
+         .enter().append("circle")
+         .attr("r", 5)
+  
+  // Function called in each step of the simulation
+  function ticked() {
+    link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+    
+    node
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+  }
+  
+  // Assign nodes to simulation
+  simulation.nodes(nodes)
+            .on("tick", ticked)
+  
+  // Assign links (edges) to simulation
+  simulation.force("link")
+            .links(links);
+}
+      
+      
+          //d3.json("pizza_request_dataset.json", function(json) {
+    //d3.select("body")
+    //        .append("ul")
+    //        .select("li")
+    //        .data(json)
+    //        .enter()
+    //        .append("li")
+    //        .text(function(d){return d.request_title;})
+//}); 
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
