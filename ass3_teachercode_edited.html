@@ -26,7 +26,7 @@
       // Set up on-load initialization
 d3.select(window).on('load', init);
 
-// Define nodes
+/*// Define nodes
 var nodes = [{'id':0, 'label':'label1'},
              {'id':1},
              {'id':2},
@@ -37,11 +37,19 @@ var links =
     [{ source: 0, target: 1, value: 1},
      { source: 1, target: 2, value: 2},
      { source: 2, target: 0, value: 5},
-     { source: 3, target: 0, value: 1}]
+     { source: 3, target: 0, value: 1}]*/
 
 
 // Initialiation function. Called after body has loaded
+d3.select(window).on('load', init);
 function init(){
+  d3.csv(
+    'data.csv', 
+    function(error, data) {
+      if (error) throw error;
+      console.log(data);
+    });
+}
   
   // Setup svg
   var w = 400;
