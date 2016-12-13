@@ -18,13 +18,12 @@
     <script> 
     // Set up on-load initialization
 d3.select(window).on('load', init);
-      
-      
-      function init(){
- d3.csv('Assignment3_data - Feuille 1.csv', 
+
+ function init(){      
+ d3.csv(
+    'Assignment3_data - Feuille 1.csv', 
    function(error, links) {
      var nodes = {};
-
 // Compute the distinct nodes from the links.
 links.forEach(function(link) {
     link.source = nodes[link.source] || 
@@ -56,7 +55,7 @@ var nodes = [{'id': 'Michael J.Anderson'},
  
   // Setup svg
      
-  function init(){
+ 
   var w = 400;
   var h = 400;
   var svg = d3.select('body')
@@ -115,20 +114,9 @@ var nodes = [{'id': 'Michael J.Anderson'},
   simulation.force("link")
             .links(links);
 });
-}   
-      
-      
-          //d3.json("pizza_request_dataset.json", function(json) {
-    //d3.select("body")
-    //        .append("ul")
-    //        .select("li")
-    //        .data(json)
-    //        .enter()
-    //        .append("li")
-    //        .text(function(d){return d.request_title;})
-//}); 
+}
+
    </script>
   </head>
   <body>
   </body>
-</html>
