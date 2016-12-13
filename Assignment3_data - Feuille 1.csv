@@ -1,0 +1,121 @@
+Source,Target,Value
+Michael J. Anderson,Frances Bay,2
+Michael J. Anderson,Scott Coffey,3
+Michael J. Anderson,Catherine E. Coulson,2
+Michael J. Anderson,Laura Dern,1
+Michael J. Anderson,Miguel Ferrer,2
+Michael J. Anderson,Laura Harring,1
+Michael J. Anderson,Freddie Jones,0
+Michael J. Anderson,Sheryl Lee,2
+Michael J. Anderson,Kyle MacLachlan,2
+Michael J. Anderson,Everett McGill,1
+Michael J. Anderson,Jack Nance,1
+Michael J. Anderson,Harry Dean Stanton,1
+Michael J. Anderson,Naomi Watts,1
+Michael J. Anderson,Alicia Witt,1
+Michael J. Anderson,Grace Zabriskie,2
+Frances Bay,Scott Coffey,1
+Frances Bay,Catherine E. Coulson,2
+Frances Bay,Laura Dern,2
+Frances Bay,Miguel Ferrer,2
+Frances Bay,Laura Harring,0
+Frances Bay,Freddie Jones,1
+Frances Bay,Sheryl Lee,2
+Frances Bay,Kyle MacLachlan,3
+Frances Bay,Everett McGill,1
+Frances Bay,Jack Nance,3
+Frances Bay,Harry Dean Stanton,2
+Frances Bay,Naomi Watts,0
+Frances Bay,Alicia Witt,1
+Frances Bay,Grace Zabriskie,3
+Scott Coffey,Catherine E. Coulson,0
+Scott Coffey,Laura Dern,2
+Scott Coffey,Miguel Ferrer,0
+Scott Coffey,Laura Harring,1
+Scott Coffey,Freddie Jones,0
+Scott Coffey,Sheryl Lee,3
+Scott Coffey,Kyle MacLachlan,1
+Scott Coffey,Everett McGill,0
+Scott Coffey,Jack Nance,2
+Scott Coffey,Harry Dean Stanton,2
+Scott Coffey,Naomi Watts,3
+Scott Coffey,Alicia Witt,0
+Scott Coffey,Grace Zabriskie,2
+Catherine E. Coulson,Laura Dern,0
+Catherine E. Coulson,Miguel Ferrer,2
+Catherine E. Coulson,Laura Harring,0
+Catherine E. Coulson,Freddie Jones,0
+Catherine E. Coulson,Sheryl Lee,2
+Catherine E. Coulson,Kyle MacLachlan,2
+Catherine E. Coulson,Everett McGill,1
+Catherine E. Coulson,Jack Nance,1
+Catherine E. Coulson,Harry Dean Stanton,1
+Catherine E. Coulson,Naomi Watts,0
+Catherine E. Coulson,Alicia Witt,1
+Catherine E. Coulson,Grace Zabriskie,2
+Laura Dern,Miguel Ferrer,0
+Laura Dern,Laura Harring,1
+Laura Dern,Freddie Jones,1
+Laura Dern,Sheryl Lee,1
+Laura Dern,Kyle MacLachlan,1
+Laura Dern,Everett McGill,0
+Laura Dern,Jack Nance,2
+Laura Dern,Harry Dean Stanton,2
+Laura Dern,Naomi Watts,1
+Laura Dern,Alicia Witt,0
+Laura Dern,Grace Zabriskie,2
+Miguel Ferrer,Laura Harring,0
+Miguel Ferrer,Freddie Jones,1
+Miguel Ferrer,Sheryl Lee,2
+Miguel Ferrer,Kyle MacLachlan,2
+Miguel Ferrer,Everett McGill,1
+Miguel Ferrer,Jack Nance,1
+Miguel Ferrer,Harry Dean Stanton,1
+Miguel Ferrer,Naomi Watts,0
+Miguel Ferrer,Alicia Witt,1
+Miguel Ferrer,Grace Zabriskie,2
+Laura Harring,Freddie Jones,0
+Laura Harring,Sheryl Lee,0
+Laura Harring,Kyle MacLachlan,0
+Laura Harring,Everett McGill,0
+Laura Harring,Jack Nance,0
+Laura Harring,Harry Dean Stanton,1
+Laura Harring,Naomi Watts,3
+Laura Harring,Alicia Witt,0
+Laura Harring,Grace Zabriskie,1
+Freddie Jones,Sheryl Lee,1
+Freddie Jones,Kyle MacLachlan,1
+Freddie Jones,Everett McGill,1
+Freddie Jones,Jack Nance,2
+Freddie Jones,Harry Dean Stanton,2
+Freddie Jones,Naomi Watts,0
+Freddie Jones,Alicia Witt,2
+Freddie Jones,Grace Zabriskie,1
+Sheryl Lee,Kyle MacLachlan,2
+Sheryl Lee,Everett McGill,1
+Sheryl Lee,Jack Nance,2
+Sheryl Lee,Harry Dean Stanton,2
+Sheryl Lee,Naomi Watts,0
+Sheryl Lee,Alicia Witt,1
+Sheryl Lee,Grace Zabriskie,3
+Kyle MacLachlan,Everett McGill,2
+Kyle MacLachlan,Jack Nance,3
+Kyle MacLachlan,Harry Dean Stanton,1
+Kyle MacLachlan,Naomi Watts,0
+Kyle MacLachlan,Alicia Witt,2
+Kyle MacLachlan,Grace Zabriskie,2
+Everett McGill,Jack Nance,2
+Everett McGill,Harry Dean Stanton,1
+Everett McGill,Naomi Watts,0
+Everett McGill,Alicia Witt,2
+Everett McGill,Grace Zabriskie,1
+Jack Nance,Harry Dean Stanton,2
+Jack Nance,Naomi Watts,0
+Jack Nance,Alicia Witt,2
+Jack Nance,Grace Zabriskie,2
+Harry Dean Stanton,Naomi Watts,1
+Harry Dean Stanton,Alicia Witt,1
+Harry Dean Stanton,Grace Zabriskie,3
+Naomi Watts,Alicia Witt,0
+Naomi Watts,Grace Zabriskie,1
+Alicia Witt,Grace Zabriskie,1
