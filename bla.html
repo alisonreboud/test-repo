@@ -19,8 +19,9 @@
     // Set up on-load initialization
 d3.select(window).on('load', init);
       
- d3.csv(
-    'Assignment3_data - Feuille 1.csv', 
+      
+      function init(){
+ d3.csv('Assignment3_data - Feuille 1.csv', 
    function(error, links) {
      var nodes = {};
 
@@ -113,8 +114,8 @@ var nodes = [{'id': 'Michael J.Anderson'},
   // Assign links (edges) to simulation
   simulation.force("link")
             .links(links);
-})
-    
+});
+}   
       
       
           //d3.json("pizza_request_dataset.json", function(json) {
