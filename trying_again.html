@@ -200,7 +200,7 @@ function init(){
          .enter()
          .append("line")
          .attr("stroke-length", function(d) { 
-           return Math.sqrt(d.value); 
+           return (d.value); 
          });
   
   // Create node elements
