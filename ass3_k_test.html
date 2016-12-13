@@ -56,7 +56,7 @@ var svg = d3.select("body").append("svg")
     .attr("height", height);
 
 // build the arrow.
-svg.append("svg:defs").selectAll("marker")
+/*svg.append("svg:defs").selectAll("marker")
     .data(["end"])      // Different link/path types can be defined here
   .enter().append("svg:marker")    // This section adds in the arrows
     .attr("id", String)
@@ -67,7 +67,7 @@ svg.append("svg:defs").selectAll("marker")
     .attr("markerHeight", 6)
     .attr("orient", "auto")
   .append("svg:path")
-    .attr("d", "M0,-5L10,0L0,5");
+    .attr("d", "M0,-5L10,0L0,5");*/
 
 // add the links and the arrows
 var path = svg.append("svg:g").selectAll("path")
