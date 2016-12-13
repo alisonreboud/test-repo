@@ -1,81 +1,94 @@
 
-// Set up on-load initialization
-d3.select(window).on('load', init);
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
 
-// Define nodes
-var nodes = [{'id':0},
-             {'id':1},
-             {'id':2},
-             {'id':3}]
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
 
-// Define edges
-var links = 
-    [{ source: 0, target: 1, value: 1},
-     { source: 1, target: 2, value: 2},
-     { source: 2, target: 0, value: 5},
-     { source: 3, target: 0, value: 1}]
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
 
+</style>
+<svg width="960" height="600"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
 
-// Initialiation function. Called after body has loaded
-function init(){
-  
-  // Setup svg
-  var w = 400;
-  var h = 400;
-  var svg = d3.select('body')
-              .append('svg')
-              .attr('width', w)
-              .attr('height', h);
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
 
-  // Create force simulation - only define force types at this point
-  var simulation = 
-    d3.forceSimulation()
-      // This defines a force linking specific nodes 
-      //   - the actual links are specified below
-      .force("link", d3.forceLink().id(function(d) { return d.id; }))
-      // This force causes nice separation between nodes
-      .force("charge", d3.forceManyBody())
-      // This force centers the nodes to the middle of the view
-      .force("center", d3.forceCenter(w / 2, h / 2));
+var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-  // Create link elements
-  var link = 
-      svg.append("g")
-         .attr("class", "links")
-         .selectAll("line")
-         .data(links)
-         .enter()
-         .append("line")
-         .attr("stroke-width", function(d) { 
-           return Math.sqrt(d.value); 
-         });
-  
-  // Create node elements
-  var node = 
-      svg.append("g")
-         .attr("class", "nodes")
-         .selectAll("circle")
-         .data(nodes)
-         .enter().append("circle")
-         .attr("r", 5)
-  
-  // Function called in each step of the simulation
+var simulation = d3.forceSimulation()
+    .force("link", d3.forceLink().id(function(d) { return d.id; }))
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+d3.json("miserables.json", function(error, graph) {
+  if (error) throw error;
+
+  var link = svg.append("g")
+      .attr("class", "links")
+    .selectAll("line")
+    .data(graph.links)
+    .enter().append("line")
+      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+
+  var node = svg.append("g")
+      .attr("class", "nodes")
+    .selectAll("circle")
+    .data(graph.nodes)
+    .enter().append("circle")
+      .attr("r", 5)
+      .attr("fill", function(d) { return color(d.group); })
+      .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+
+  node.append("title")
+      .text(function(d) { return d.id; });
+
+  simulation
+      .nodes(graph.nodes)
+      .on("tick", ticked);
+
+  simulation.force("link")
+      .links(graph.links);
+
   function ticked() {
     link
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
         .attr("x2", function(d) { return d.target.x; })
         .attr("y2", function(d) { return d.target.y; });
-    
+
     node
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
   }
-  
-  // Assign nodes to simulation
-  simulation.nodes(nodes)
-            .on("tick", ticked)
-  
-  // Assign links (edges) to simulation
-  simulation.force("link")
-            .links(links);
+});
+
+function dragstarted(d) {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+
+function dragended(d) {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+
+</script>
