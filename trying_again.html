@@ -26,22 +26,22 @@
 d3.select(window).on('load', init);
 
 // Define nodes
-var nodes = [{'id': 'Michael J. Anderson'},
-             {'id':'Frances Bay'},
-             {'id':'Scott Coffey'},
-             {'id':'Catherine E. Coulson'},
-             {'id':'Laura Dern'},
-             {'id':'Miguel Ferrer'},
-             {'id':'Laura Harring'},
-             {'id':'Freddie Jones'},
-             {'id':'Sheryl Lee'},
-             {'id':'Kyle MacLachlan'},
-             {'id':'Everett McGill'},
-             {'id':'Jack Nance'},
-             {'id':'Harry Dean Stanton'},
-             {'id':'Naomi Watts'},
-             {'id':'Alicia Witt'},
-             {'id':'Grace Zabriskie'}]
+var nodes = [{'id': 'Michael J. Anderson',"group": 1},
+             {'id':'Frances Bay',"group": 2},
+             {'id':'Scott Coffey',"group": 1},
+             {'id':'Catherine E. Coulson',"group": 2},
+             {'id':'Laura Dern',"group": 2},
+             {'id':'Miguel Ferrer',"group": 1},
+             {'id':'Laura Harring',"group": 2},
+             {'id':'Freddie Jones',"group": 1},
+             {'id':'Sheryl Lee',"group": 2},
+             {'id':'Kyle MacLachlan', "group": 1},
+             {'id':'Everett McGill',"group": 1},
+             {'id':'Jack Nance',"group": 1},
+             {'id':'Harry Dean Stanton',"group": 1},
+             {'id':'Naomi Watts',"group": 2},
+             {'id':'Alicia Witt',"group": 2},
+             {'id':'Grace Zabriskie', "group": 2}]
 
 // Define edges
 var links = 
@@ -203,6 +203,8 @@ function init(){
            return Math.sqrt(d.value); 
          });
   
+  var color = d3.scaleOrdinal(d3.schemeCategory20);
+  
   // Create node elements
   var node = 
       svg.append("g")
@@ -212,6 +214,7 @@ function init(){
          .enter().append("circle")
          .attr("r", 5)
   node.append("title")
+      .attr("fill", function(d) { return color(d.group); })
       .text(function(d) { return d.id; });
   
   // Function called in each step of the simulation
