@@ -213,8 +213,8 @@ function init(){
          .data(nodes)
          .enter().append("circle")
          .attr("r", 5)
+         .attr("fill", function(d) { return color(d.group); })
   node.append("title")
-      .attr("fill", function(d) { return color(d.group); })
       .text(function(d) { return d.id; });
   
   // Function called in each step of the simulation
