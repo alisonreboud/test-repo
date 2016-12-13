@@ -187,7 +187,7 @@ function init(){
       //   - the actual links are specified below
       .force("link", d3.forceLink().id(function(d) { return d.id; }))
       // This force causes nice separation between nodes
-      .force("charge", d3.forceManyBody())
+      //.force("charge", d3.forceManyBody())
       // This force centers the nodes to the middle of the view
       .force("center", d3.forceCenter(w / 2, h / 2));
 
