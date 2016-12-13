@@ -25,6 +25,7 @@ d3.select(window).on('load', init);
       if (error) throw error;
       console.log(data);
       links=data;
+     }
  
       
 
@@ -105,7 +106,7 @@ var nodes = [{'id': 'Michael J.Anderson'},
   simulation.force("link")
             .links(links);
 }
-     });
+     );
       
       
           //d3.json("pizza_request_dataset.json", function(json) {
