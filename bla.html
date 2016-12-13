@@ -21,10 +21,18 @@ d3.select(window).on('load', init);
  d3.csv(
     'Assignment3_data - Feuille 1.csv', 
    function(error, links) {
+     var nodes = {};
 
+// Compute the distinct nodes from the links.
+links.forEach(function(link) {
+    link.source = nodes[link.source] || 
+        (nodes[link.source] = {name: link.source});
+    link.target = nodes[link.target] || 
+        (nodes[link.target] = {name: link.target});
+    link.value = +link.value;
 });
-      
 
+/*
 // Define nodes
 var nodes = [{'id': 'Michael J.Anderson'},
              {'id':'Frances Bay'},
@@ -42,6 +50,7 @@ var nodes = [{'id': 'Michael J.Anderson'},
              {'id':'Naomi Watts'},
              {'id':'Alicia Witt'},
              {'id':'Grace Zabriskie'}]
+             */
  
   // Setup svg
   var w = 400;
