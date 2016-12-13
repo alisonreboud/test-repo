@@ -18,16 +18,35 @@
     <script> 
     // Set up on-load initialization
 
+      
+      
+      
+        // Define data
+        var dataset = d3.csv("example_1_-_station.csv", 
+                             
+                            
+               
+      
+      
 d3.select(window).on('load', init);
 
         function init() {
 
- var links= d3.csv(
-    'Assignment3_data - Feuille 1.csv', 
-    function(error, data) {
-      if (error) throw error;
-      console.log(data);
-    });
+ //var links= d3.csv(
+   // 'Assignment3_data - Feuille 1.csv', 
+   
+    //function(data) {
+      //console.log(data);
+    //});
+          
+//var lines =           
+          
+d3.csv("example_1_-_station.csv", function(d) {
+  d.YEAR = +d.YEAR;
+  d.metANN = +d.metANN;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
 
 
 // Define nodes
