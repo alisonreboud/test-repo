@@ -96,7 +96,7 @@ node.append("text")
     .text(function(d) { return d.name; });
 
 // add the curvy lines
-/*function tick() {
+function tick() {
     path.attr("d", function(d) {
         var dx = d.target.x - d.source.x,
             dy = d.target.y - d.source.y,
@@ -106,7 +106,7 @@ node.append("text")
             d.source.y + "A" + 
             dr + "," + dr + " 0 0,1 " + 
             d.target.x + "," + 
-            d.target.y;*/
+            d.target.y;
     });
 
     node
