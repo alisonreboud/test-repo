@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -9,6 +8,7 @@
   stroke: #999;
   stroke-opacity: 0.6;
 }
+
 .nodes circle {
   stroke: #fff;
   stroke-width: 1.5px;
@@ -17,14 +17,17 @@
     <title>Assignment 3</title>
     <script> 
     // Set up on-load initialization
+
 d3.select(window).on('load', init);
 
- function init(){      
- d3.csv(
-    'Assignment3_data - Feuille 1.csv', 
-   function(error, links) {
-    
+        function init() {
 
+ var links= d3.csv(
+    'Assignment3_data - Feuille 1.csv', 
+    function(error, data) {
+      if (error) throw error;
+      console.log(data);
+    };
 
 
 // Define nodes
@@ -44,17 +47,18 @@ var nodes = [{'id': 'Michael J.Anderson'},
              {'id':'Naomi Watts'},
              {'id':'Alicia Witt'},
              {'id':'Grace Zabriskie'}]
-             */
- 
+
+
+
+  
   // Setup svg
-     
- 
   var w = 400;
   var h = 400;
   var svg = d3.select('body')
               .append('svg')
               .attr('width', w)
               .attr('height', h);
+
   // Create force simulation - only define force types at this point
   var simulation = 
     d3.forceSimulation()
@@ -65,10 +69,11 @@ var nodes = [{'id': 'Michael J.Anderson'},
       .force("charge", d3.forceManyBody())
       // This force centers the nodes to the middle of the view
       .force("center", d3.forceCenter(w / 2, h / 2));
+
   // Create link elements
   var link = 
       svg.append("g")
-         .attr("class", "links")
+         //.attr("class", "links")
          .selectAll("line")
          .data(links)
          .enter()
@@ -106,10 +111,12 @@ var nodes = [{'id': 'Michael J.Anderson'},
   // Assign links (edges) to simulation
   simulation.force("link")
             .links(links);
-});
-}
-
-   </script>
+)}
+      
+      
+       
+    </script>
   </head>
   <body>
   </body>
+</html>
