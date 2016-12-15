@@ -25,7 +25,7 @@ function update(g, x, y, data) {
    // Here, we merge the Update and Enter selections
    // So that we can update the positions for both 
    // existing and new elements in one go.
-   .merge(circles)  
+   .merge(circles)
     .attr('cx', function(d){return x(d.key);})
     .attr('cy', function(d){return y(d.value);})
 
@@ -77,14 +77,6 @@ function init() {
         .attr('cx', function(d){return x(d.key);})
         .attr('cy', function(d){return y(d.value);})
         .attr('r', function(d){return 5;})
-        .on("mouseover", 
-            function(d) {
-              d3.select(this).attr('fill', 'blue');
-            })
-        .on("mouseout", 
-            function(d) {
-              d3.select(this).attr('fill', 'black');
-            })
 
     d3.select("#button1")
       .on("click", function(d, i) {
@@ -106,6 +98,13 @@ function init() {
         data.splice(data.length/2, 1)
         update(g, x, y, data);
 
+    });  
+    d3.select("#button4")
+      .on("click", function(d, i) {
+        data = data.map(function(d,i) {
+          return {key: d.key, value: data[data.length-1-i].value}
+        })
+        update(g, x, y, data);
     });  
         
 }
