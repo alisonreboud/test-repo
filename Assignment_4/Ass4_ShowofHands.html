@@ -93,7 +93,7 @@ main.append('g')
 // draw the graph object
 var g = main.append("svg:g"); 
 
-g.selectAll(."scatter-dots")
+g.selectAll(".scatter-dots")
   .data(d.Year)  // using the values in the ydata array
   .enter().append("svg:circle").attr("class", "scatter-dots")  // create a new circle for each value
       .attr("cy", function (d) { return y(d.Year); } ) // translate y value to a pixel
