@@ -33,9 +33,9 @@
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
-        var xMax = d3.max(data, function(d) { return +d.Survivaltime; }),
+        var xMax = d3.max(data, function(d) { return +d.COL1; }),
         xMin = 0,
-        yMax = d3.max(data, function(d) { return +d.Year; }),
+        yMax = d3.max(data, function(d) { return +d.COL2; }),
         yMin = 1950;
 
         //Define scales
