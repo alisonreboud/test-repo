@@ -77,13 +77,13 @@
 								 .range([2, 5]);
 
 			//Define X axis
-			var xAxis = d3.axis()
+			var xAxis = d3.svg.axis()
 							  .scale(xScale)
 							  .orient("bottom")
 							  .ticks(5);
 
 			//Define Y axis
-			var yAxis = d3.axis()
+			var yAxis = d3.svg.axis()
 							  .scale(yScale)
 							  .orient("left")
 							  .ticks(5);
