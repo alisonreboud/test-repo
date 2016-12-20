@@ -95,45 +95,26 @@
 				.attr("class", "axis")
 				.attr("transform", "translate(0," + (h - padding) + ")")
 				.call(xAxis);
+			svg.append("text")
+			    .attr("class", "xlabel")
+			    .attr("x", w - 40)
+			    .attr("y", h - 6)
+			    .style("text-anchor", "end")
+			    .text("PC1");
 			
 			//Create Y axis
 			svg.append("g")
 				.attr("class", "axis")
 				.attr("transform", "translate(" + padding + ",0)")
 				.call(yAxis);
+			svg.append("text")
+			    .attr("class", "ylabel")
+			    .attr("transform", "rotate(-90)")
+			    .attr("y", 6)
+			    .attr("dy", ".71em")
+			    .style("text-anchor", "end")
+			    .text("PC2");
 			
-			//Plot title and labels
-			  svg.append("g")
-      				.attr("class", "axis axis--x")
-      				.attr("transform", "translate(0," + h + ")")
-      				//.call(d3.axisBottom().scale(xScale).tickFormat(d3.format("d")))
-    			     .append("text")
-     				.attr("fill", "#000")
-      			      //.attr("transform", "rotate(-90)")
-      				.attr("y", 25)
-    			        .attr("dy", "0.71em")
-      				.style("text-anchor", "middle")
-      				.style("font-size", "14px") 
-      				.text("PCA 1");
-  			  svg.append("text")
-        			.attr("x", (w / 2))             
-       				.attr("y", 0 - (padding / 2))
-				.attr("text-anchor", "middle")  
-				.style("font-size", "20px") 
-				.style("text-decoration", "underline")  
-				.text("Hands PCA Scatter Plot");
-			  svg.append("g")
-			        .attr("class", "axis axis--y")
-			        //.call(d3.axisLeft().scale(yScale))
-			     .append("text")
-			        .attr("fill", "#000")
-			        .attr("transform", "rotate(-90)")
-			        .attr("y", -35)
-			        .attr("dy", "0.71em")
-			        .style("text-anchor", "end")
-			        .style("font-size", "14px") 
-			        .text("PCA 2");
-
 		</script>
 	</div>
       And finally some more.
