@@ -31,8 +31,8 @@ var y = d3.scaleLinear()
   
   d3.text("hands.csv", function(text) {
   var hand_data = d3.csv.parseRows(text).map(function(row) {
-    return row.map(function(value) {
-      return +value;
+    return row.map(function(d) {
+      return +d;
 
     });
   });
@@ -49,11 +49,14 @@ for (i in hand_data) {
      hands_y = hand_data.slice(56, 113));
 
 };
+    
+    
+   
 
 var line = d3.line()
-    //.defined(function(d) {return d.metANN < 100})
-    .x(function(d) { return x(hands_x[0]); })
-    .y(function(d) { return y(hands_y[0]); });
+    .defined(function(d) {return )
+    .x(function(d) { return d.x(hands_x[0]); })
+    .y(function(d) { return d.y(hands_y[0]); });
   
   g.append("g")
       .attr("class", "axis axis--x")
