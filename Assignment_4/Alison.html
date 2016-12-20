@@ -52,8 +52,8 @@ for (i in hand_data) {
 
 var line = d3.line()
     //.defined(function(d) {return d.metANN < 100})
-    .x(function(d) { return x(hands_x); })
-    .y(function(d) { return y(hands_y); });
+    .x(function(d) { return x(hands_x[0]); })
+    .y(function(d) { return y(hands_y[0]); });
   
   g.append("g")
       .attr("class", "axis axis--x")
