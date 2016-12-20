@@ -119,8 +119,17 @@
       And finally some more.
     </div>
     <div style="float: clear;"></div>
-	<div>
-		<title>Introduction</title>
-	    </div>
+<div id = "discuss">
+    <H1 id = "discussion">Discussion</H1>
+    <p>
+      In order to understand better the PCA it will be useful to play with the different principal components on the visualization, this will give us a better idea of how to interpret the data.</p>
+      <p>
+        For instance, when comparing the PC1 against PC2 we can get an overview of which feature correspond (is linked) to each one. If we take a look on one of the outliers, such as the <a id = "outlier11"> <font color="red">hand 39</font></a>, it can be seen when is compared to others that the PC1 contains the information about the distance between the thumb and the little finger. (Compare <a id = "outlier2"><font color="red">hand 30</font></a> against <a id = "outlier3"><font color="red">hand 35</font></a>). Moreover, the PC2 it seems to have the information related to distance between the little and the ring finger (compare <a id = "outlier"><font color="red">hand 39</font></a>  against <a id = "outlier4"><font color="red">hand 37</font></a>).
+
+      </p>
+      <p>
+        Using k means clustering it’s possible to identify points with little variance in the components.
+In this particular dataset as the variance is limited by the movement of the hand, there are no clearly defined clusters which can be found. By using a high k value is easier to identify similar points.
+    </div>
 </body>
 </html>
