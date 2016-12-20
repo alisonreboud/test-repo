@@ -34,9 +34,15 @@ body {
 <script src="//d3js.org/d3.v4.0.0-alpha.4.min.js"></script>
 <script>
 
-var data = d3.range(40).map(function(i) {
-  return i % 5 ? {x: i / 39, y: (Math.sin(i / 3) + 2) / 4} : null;
-});
+var data = d3.csv("hands_oh - Feuille 1.csv", function(d) {
+  d.x = +d.x;
+  d.y = +d.my;
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+    
+  x.domain(d3.extent(data, function(d) { return d.x; }));
+  y.domain(d3.extent(data, function(d) {return d.y}));
 
 var margin = {top: 40, right: 40, bottom: 40, left: 40},
     width = 960 - margin.left - margin.right,
