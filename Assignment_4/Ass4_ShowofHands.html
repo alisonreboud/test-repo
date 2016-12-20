@@ -97,9 +97,9 @@
 				.call(xAxis);
 			svg.append("text")
 			    .attr("class", "xlabel")
-			    .attr("x", w - 40)
-			    .attr("y", h - 6)
-			    .style("text-anchor", "end")
+			    .attr("x", 25)
+			    //.attr("y", h - 6)
+			    .style("text-anchor", "middle")
 			    .text("PC1");
 			
 			//Create Y axis
@@ -110,7 +110,7 @@
 			svg.append("text")
 			    .attr("class", "ylabel")
 			    .attr("transform", "rotate(-90)")
-			    .attr("y", 6)
+			    .attr("y", -10)
 			    .attr("dy", ".71em")
 			    .style("text-anchor", "end")
 			    .text("PC2");
