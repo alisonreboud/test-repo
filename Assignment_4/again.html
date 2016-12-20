@@ -36,7 +36,7 @@ body {
 
 var data = d3.csv("hands_oh - Feuille 1.csv", function(d) {
   d.x = +d.x;
-  d.y = +d.my;
+  d.y = +d.y;
   return d;
 }, function(error, data) {
   if (error) throw error;
