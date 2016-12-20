@@ -105,7 +105,7 @@
 			//Plot title and labels
 			  svg.append("g")
       				.attr("class", "axis axis--x")
-      				.attr("transform", "translate(0," + height + ")")
+      				.attr("transform", "translate(0," + h + ")")
       				.call(d3.axisBottom(x).tickFormat(d3.format("d")))
     			     .append("text")
      				.attr("fill", "#000")
@@ -116,7 +116,7 @@
       				.style("font-size", "14px") 
       				.text("PCA 1");
   			  svg.append("text")
-        			.attr("x", (width / 2))             
+        			.attr("x", (w / 2))             
        				.attr("y", 0 - (margin.top / 2))
 				.attr("text-anchor", "middle")  
 				.style("font-size", "20px") 
