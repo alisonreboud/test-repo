@@ -29,24 +29,33 @@ var line = d3.line()
     .defined(function(d) {return d.metANN < 100})
     .x(function(d) { return x(d.YEAR); })
     .y(function(d) { return y(d.metANN); });
-d3.csv("example_1_-_station.csv", function(d) {
-  d.YEAR = +d.YEAR;
-  d.metANN = +d.metANN;
-  return d;
-}, function(error, data) {
-  if (error) throw error;
-    
-  x.domain(d3.extent(data, function(d) { return d.YEAR; }));
-  y.domain(d3.extent(data, function(d) { if (d.metANN > 100) {
-        return 0;
-    } else {
-        return d.metANN;
-    }; }));
-  //y.forceY([7,12])
+  
+  
+  
+  d3.text("hands.csv", function(text) {
+  var hand_data = d3.csv.parseRows(text).map(function(row) {
+    return row.map(function(value) {
+      return +value;
+
+    });
+  });
+
+
+var hands=[];
+
+for (i in hand_data) {
+
+  var shape = hand_data[i];
+  hands[i] = d3.zip(shape.slice(0, 56),shape.slice(56, 113));
+
+};
+
+
   
   g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
+      //.call(d3.axisBottom(x).tickFormat(d3.format("d")))
       .call(d3.axisBottom(x).tickFormat(d3.format("d")))
     .append("text")
       .attr("fill", "#000")
@@ -75,7 +84,7 @@ d3.csv("example_1_-_station.csv", function(d) {
       .style("font-size", "14px") 
       .text("Annual Mean Temperatures (degrees celsius)");
   g.append("path")
-      .datum(data)
+      .datum(hands)
       .attr("class", "line")
       .attr("d", line);
 });
