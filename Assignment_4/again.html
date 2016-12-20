@@ -37,7 +37,7 @@ body {
 <script src="//d3js.org/d3.v4.0.0-alpha.4.min.js"></script>
 <script>
 
-var data = d3.csv("hands_oh - Feuille 1.csv", function(d) {
+var data = d3.text("hands_oh - Feuille 1.csv", function(d) {
   d.x = +d.x;
   d.y = +d.y;
   return d;
