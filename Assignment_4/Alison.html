@@ -25,10 +25,7 @@ var x = d3.scaleLinear()
     //.tickFormat(d3.format("d"));
 var y = d3.scaleLinear()
     .rangeRound([height, 0]);
-var line = d3.line()
-    .defined(function(d) {return d.metANN < 100})
-    .x(function(d) { return x(d.YEAR); })
-    .y(function(d) { return y(d.metANN); });
+
   
   
   
@@ -41,16 +38,22 @@ var line = d3.line()
   });
 
 
-var hands=[];
+var hands_x=[];
+ var hands_y=[];
 
 for (i in hand_data) {
 
-  var shape = hand_data[i];
-  hands[i] = d3.zip(shape.slice(0, 56),shape.slice(56, 113));
+  //var shape = hand_data[i];
+  //hands[i] = d3.zip(shape.slice(0, 56),shape.slice(56, 113));
+    hands_x = hand_data.slice(0, 56);
+     hands_y = hand_data.slice(56, 113));
 
 };
 
-
+var line = d3.line()
+    //.defined(function(d) {return d.metANN < 100})
+    .x(function(d) { return x(hands_x); })
+    .y(function(d) { return y(hands_y); });
   
   g.append("g")
       .attr("class", "axis axis--x")
