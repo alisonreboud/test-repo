@@ -42,7 +42,7 @@ var data = d3.csv("hands_oh - Feuille 1.csv", function(d) {
   if (error) throw error;
     
   x.domain(d3.extent(data, function(d) { return d.x; }));
-  y.domain(d3.extent(data, function(d) {return d.y}));
+  y.domain(d3.extent(data, function(d) {return d.y;}));
 
 var margin = {top: 40, right: 40, bottom: 40, left: 40},
     width = 960 - margin.left - margin.right,
