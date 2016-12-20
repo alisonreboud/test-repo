@@ -84,7 +84,7 @@ for (i in hand_data) {
       .style("font-size", "14px") 
       .text("Annual Mean Temperatures (degrees celsius)");
   g.append("path")
-      .datum(hands)
+      .datum(data)
       .attr("class", "line")
       .attr("d", line);
 });
