@@ -28,65 +28,7 @@
 		</style>
 
 		<script type="text/javascript">
-			//Width and height
-			var w = 500;
-			var h = 300;
-			var padding = 30;
 			
-			var dataset = [
-							[-0.36273476, -0.03003287], [-0.19788622, -0.01479966], [-0.06533481, -0.01564985], [0.1159273, -0.00934947], [0.1139199, -0.00486681], [0.50858274, -0.22398832], [0.14191212, 0.01903032], [0.08757014, 0.01844983], [-0.0284531, 0.16468906], [-0.25294777, -0.22607334], [-0.41438994, -0.01898872], [-0.19405114, -0.05264623], [0.03169398, -0.04303378], [0.22841291, -0.02847918], [0.36053013, -0.09157883], [0.48534316, -0.21290459], [-0.22018978, 0.01377891], [0.08622223, 0.13259871], [-0.13156124, 0.13147828], [-0.15094812, 0.05016439], [-0.44661432, 0.01416537], [-0.13404586, 0.05908271], [0.0093915, 0.07582225], [0.21762946, -0.01350732], [0.32761063, -0.13456273], [0.43579748, -0.1937768], [0.030914, 0.25347662], [-0.16303073, -0.14246252], [-0.15591603, -0.05205692], [-0.05198702, 0.06267556], [-0.48998377, -0.04747742], [-0.30749286, 0.06144199], [-0.00163602, 0.16012436], [0.25334376, 0.16895607], [0.45024078, 0.06865127], [0.62252026, -0.03661794], [-0.04554008, 0.12584583], [0.12019546, 0.4657887], [-0.391543, -0.02601544], [-0.42147136, -0.42735151]
-						  ];
-			//Create scale functions
-			var xScale = d3.scale.linear()
-								 .domain([d3.min(dataset), d3.max(dataset, function(d) { return d[0]; })])
-								 .range([padding, w - padding * 2]);
-			var yScale = d3.scale.linear()
-								 .domain([d, d3.max(dataset, function(d) { return d[1]; })])
-								 .range([h - padding, padding]);
-			var rScale = d3.scale.linear()
-								 .domain([0, d3.max(dataset, function(d) { return d[1]; })])
-								 .range([2, 5]);
-			//Define X axis
-			var xAxis = d3.svg.axis()
-							  .scale(xScale)
-							  .orient("bottom")
-							  .ticks(5);
-			//Define Y axis
-			var yAxis = d3.svg.axis()
-							  .scale(yScale)
-							  .orient("left")
-							  .ticks(5);
-			//Create SVG element
-			var svg = d3.select("body")
-						.append("svg")
-						.attr("width", w)
-						.attr("height", h);
-			//Create circles
-			svg.selectAll("circle")
-			   .data(dataset)
-			   .enter()
-			   .append("circle")
-			   .attr("cx", function(d) {
-			   		return xScale(d[0]);
-			   })
-			   .attr("cy", function(d) {
-			   		return yScale(d[1]);
-			   })
-			   .attr("r", function(d) {
-			   		return rScale(d[1]);
-			   });
-			
-			//Create X axis
-			svg.append("g")
-				.attr("class", "axis")
-				.attr("transform", "translate(0," + (h - padding) + ")")
-				.call(xAxis);
-			
-			//Create Y axis
-			svg.append("g")
-				.attr("class", "axis")
-				.attr("transform", "translate(" + padding + ",0)")
-				.call(yAxis);
 		</script>
       And finally some more.
     </div>
@@ -110,23 +52,7 @@
 		</style>
 
 		<script type="text/javascript">
-			var margin = {top:20 , right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-var svg = d3.select("#hand").append("svg")
-    .attr("width", width - 300)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate("+ margin.left + "," + margin.top + ")");
-
-var width2 = width - 150;
-var svg2 = d3.select("#pca").append("svg")
-    .attr("width", width2)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate("+ margin.left + "," + margin.top + ")");
-
+			
 
 d3.text("hands.csv", function(text) {
   var hand_data = d3.csv.parseRows(text).map(function(row) {
@@ -135,12 +61,7 @@ d3.text("hands.csv", function(text) {
 
     });
   });
-d3.text("hands_pca.csv", function(text) {
-  var hand_pca_data = d3.csv.parseRows(text).map(function(col, i) {
-    return d3.csv.parseRows(text).map(function(row) {
-      return +row[i]
-    })
-  });
+
 
 
 var hands=[];
@@ -153,29 +74,8 @@ for (i in hand_data) {
 };
 
 
-var pc = [1,2];
 
-var pca_hands = d3.zip(hand_pca_data[pc[0]-1],hand_pca_data[pc[1]-1]);
-
-var pos = {x: 250, y: 230, xh: 60, yh: 85};
-var circ_r = 200;
-var scale_h = width/3;
-
-  // Scale the range of the data
-
-  var xValue = function(d) { return d;}, // data -> value
-    xScale = d3.scale.linear()
-        .domain([d3.min(pca_hands, function(d) { return d[0]; })/0.8,d3.max(pca_hands, function(d) { return d[0]; })*1.2])
-        .range([0, width2]), // value -> display
-    xMap = function(d) { return xScale(xValue(d[0]));}, // data -> display
-    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
-// setup y
-var yValue = function(d) { return d;}, // data -> value
-    yScale = d3.scale.linear()
-        .domain([d3.min(pca_hands, function(d) { return d[1]; })/0.8, d3.max(pca_hands, function(d) { return d[1]; })*1.2])
-        .range([height, 0]), // value -> display
-    yMap = function(d) { return yScale(yValue(d[1]));}, // data -> display
-    yAxis = d3.svg.axis().scale(yScale).orient("left");
+ 
 		</script>
 	</div>
       And finally some more.
