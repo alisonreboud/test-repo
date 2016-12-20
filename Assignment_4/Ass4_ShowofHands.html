@@ -44,11 +44,11 @@
 						  ];
 
 			//Create scale functions
-			var xScale = d3.scaleLinear()
+			var xScale = d3.scale.linear()
 								 .domain([d3.min(dataset, function(d) { return d[0]; }), d3.max(dataset, function(d) { return d[0]; })])
 								 .range([padding, w - padding * 2]);
 
-			var yScale = d3.scaleLinear()
+			var yScale = d3.scale.linear()
 								 .domain([d3.min(dataset, function(d) { return d[1]; }), d3.max(dataset, function(d) { return d[1]; })])
 								 .range([h - padding, padding]);
 
@@ -106,7 +106,7 @@
 			  svg.append("g")
       				.attr("class", "axis axis--x")
       				.attr("transform", "translate(0," + h + ")")
-      				.call(d3.axisBottom().scale(xScale).tickFormat(d3.format("d")))
+      				//.call(d3.axisBottom().scale(xScale).tickFormat(d3.format("d")))
     			     .append("text")
      				.attr("fill", "#000")
       			      //.attr("transform", "rotate(-90)")
@@ -124,7 +124,7 @@
 				.text("Hands PCA Scatter Plot");
 			  svg.append("g")
 			        .attr("class", "axis axis--y")
-			        .call(d3.axisLeft().scale(yScale))
+			        //.call(d3.axisLeft().scale(yScale))
 			     .append("text")
 			        .attr("fill", "#000")
 			        .attr("transform", "rotate(-90)")
