@@ -71,8 +71,7 @@
 			var svg = d3.select("body")
 						.append("svg")
 						.attr("width", w)
-						.attr("height", h)
-						.attr("align","right");
+						.attr("height", h);
 
 			//Create circles
 			svg.selectAll("circle")
@@ -110,7 +109,7 @@
 			svg.append("text")
 			    .attr("class", "ylabel")
 			    .attr("transform", "rotate(-90)")
-			    .attr("y", -5)
+			    .attr("y", 2)
 			    .attr("dy", ".71em")
 			    .style("text-anchor", "end")
 			    .text("PC2");
