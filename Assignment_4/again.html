@@ -52,19 +52,19 @@ var data = d3.csv("hands_oh - Feuille 1.csv", function(d) {
   return d;
 }, function(error, data) {
   if (error) throw error;
+  
+  
+  var x = d3.scaleLinear()
+    .range([0, width]);
+
+var y = d3.scaleLinear()
+    .range([height, 0]);
+
     
   x.domain(d3.extent(data, function(d) { return d.x; }));
   y.domain(d3.extent(data, function(d) {return d.y;}))
   
   ;
-
-
-
-var x = d3.scaleLinear()
-    .range([0, width]);
-
-var y = d3.scaleLinear()
-    .range([height, 0]);
 
 
 
