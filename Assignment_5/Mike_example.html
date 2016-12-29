@@ -21,7 +21,7 @@ var albersProjection = d3.geo.albers()
 var geoPath = d3.geo.path()
     .projection( albersProjection );
 g.selectAll( "path" )
-  .data( sf_crime_geojson.features )
+  .data( sf_crime_json.features )
   .enter()
   .append( "path" )
   .attr( "fill", "#ccc" )
