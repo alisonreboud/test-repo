@@ -3,23 +3,9 @@
   <title>A D3 map</title>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="sf_crime.geojson"></script>
-  <!-- sourcing adds on for jquery-->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
   <script>
-    // Create a Map centered on San Francisco
-var map = L.map('map').setView([37.775, -122.419], 11);
-// Add an OpenStreetMap(c) based background
-var cartodb =  new  L.tileLayer(
-    'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-        attribution: 
-            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            + ' contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-    }
-);
-map.addLayer(cartodb);
 var width = 700,
     height = 580;
 var svg = d3.select( "body" )
