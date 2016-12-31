@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"features": [{
+    "type": "Feature",
+    "properties": {
+        "profit": 326,
+        "npa": 174.000000
+    }
+}, {
+    "type": "Feature",
+    "properties": {
+        "profit": 1762,
+        "npa": 1683.000000
+    }
+}]
+}
