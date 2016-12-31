@@ -28,7 +28,7 @@
 	   return d3.sum(d, function(g) {return g.Category; });
 	  data.forEach(function(d) {
 		 d.DayOfWeek = d.key;
-		 d.CrimeCount = d.values;
+		 d.CrimeCount = +d.values;
 		});
 	  }).entries(data);
 	
