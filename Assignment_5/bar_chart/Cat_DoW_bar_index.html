@@ -58,7 +58,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
 	
-  x.domain(data.map(function(d) { return d.DayOfWeek; }));
+  x.domain(sf_crime_data.map(function(d) { return d.DayOfWeek; }));
   y.domain([0, d3.max(data, function(d) { return d.CrimeCount; })]);
 
   svg.append("g")
