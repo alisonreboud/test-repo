@@ -70,6 +70,11 @@ var svg = d3.select("body").append("svg")
       .attr("dx", "-.8em")
       .attr("dy", "-.55em")
       .attr("transform", "rotate(-90)" );
+    .append("text")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Day of the Week");
 
   svg.append("g")
       .attr("class", "y axis")
