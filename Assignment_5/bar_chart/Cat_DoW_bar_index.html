@@ -1,5 +1,28 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="http://d3js.org/d3.v3.min.js" ></script>
+  <style>
+    .axis {
+  	  font: 10px sans-serif;
+  	}
+  	.axis path,
+  	.axis line {
+  	  fill: none;
+  	  stroke: #000;
+  	  shape-rendering: crispEdges;
+  	}
+  </style>
+</head>
 
-d3.csv("/data/assignment5_first200.csv", function(data) {
+<body>
+  <script>
+    d3.csv("/data/assignment5_first200.csv", function(data) {
   console.log(data[0]);
 });
+  </script>
+</body>
+
+</html>
