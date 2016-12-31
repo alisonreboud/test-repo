@@ -21,7 +21,7 @@
   <script>
 // Converted sf_crime.geojson file back to .csv using http://www.convertcsv.com/geojson-to-csv.htm
 	 
-	d3.csv("sf_crime.csv", function(error, sf_crime_data) {
+	d3.csv("sf_crime.csv", function(error, data) {
 	 var data = d3.nest()
 	  .key(function(d) { return d.DayOfWeek;})
 	  .rollup(function(d) { 
@@ -30,7 +30,7 @@
 		 d.DayOfWeek = d.key;
 		 d.CrimeCount = d.values;
 		});
-	  }).entries(sf_crime_data);
+	  }).entries(data);
 	});
 	 
 var margin = {top: 20, right: 20, bottom: 70, left: 40},
@@ -58,8 +58,8 @@ var svg = d3.select("body").append("svg")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
 	
-  x.domain(sf_crime_data.map(function(d) { return d.DayOfWeek; }));
-  y.domain([0, d3.max(sf_crime_data, function(d) { return d.CrimeCount; })]);
+  x.domain(data.map(function(d) { return d.DayOfWeek; }));
+  y.domain([0, d3.max(data, function(d) { return d.CrimeCount; })]);
 
   svg.append("g")
       .attr("class", "x axis")
