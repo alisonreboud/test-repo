@@ -19,9 +19,21 @@
 
 <body>
   <script>
-    d3.csv("/data/assignment5_first200.csv", function(data) {
+    var data200 = d3.csv("/data/assignment5_first200.csv", function(data) {
   console.log(data[0]);
 });
+    
+    var dataByDoW = d3.nest()
+  .key(function(d) { return d.DayOfWeek; })
+  .entries(data200);
+    
+    var data200Count = d3.nest()
+  .key(function(d) { return d.DayOfWeek; })
+  .rollup(function(v) { return v.length; })
+  .entries(data200);
+console.log(JSON.stringify(data200Count));
+    
+    
   </script>
 </body>
 
