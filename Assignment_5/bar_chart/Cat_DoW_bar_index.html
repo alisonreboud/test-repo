@@ -28,8 +28,7 @@
 	   return d3.sum(d, function(g) {return g.Category; });
 	  data.forEach(function(d) {
 		 d.DayOfWeek = d.key;
-		 d.CrimeCount = +d.values;
-		  console.log(d.CrimeCount);
+		 d.Category = +d.values;
 		});
 	  }).entries(data);
 	
@@ -60,7 +59,7 @@ var svg = d3.select("body").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 	
   x.domain(data.map(function(d) { return d.DayOfWeek; }));
-  y.domain([0, d3.max(data, function(d) { return d.CrimeCount; })]);
+  y.domain([0, d3.max(data, function(d) { return d.Category; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -88,8 +87,8 @@ var svg = d3.select("body").append("svg")
       .style("fill", "steelblue")
       .attr("x", function(d) { return x(d.DayOfWeek); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.CrimeCount); })
-      .attr("height", function(d) { return height - y(d.CrimeCount); }); 
+      .attr("y", function(d) { return y(d.Category); })
+      .attr("height", function(d) { return height - y(d.Category); }); 
 });
     
   </script>
