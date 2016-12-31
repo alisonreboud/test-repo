@@ -27,7 +27,6 @@
 	  .rollup(function(d) { 
 	   return d3.sum(d, function(g) {return g.Category; });
 	  }).entries(csv_data);
-	...
 	});
 		
 	data.forEach(function(d) {
