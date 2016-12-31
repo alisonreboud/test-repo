@@ -31,7 +31,7 @@
 		 d.CrimeCount = d.values;
 		});
 	  }).entries(data);
-	});
+	);
 	 
 var margin = {top: 20, right: 20, bottom: 70, left: 40},
     width = 600 - margin.left - margin.right,
@@ -89,6 +89,7 @@ var svg = d3.select("body").append("svg")
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.CrimeCount); })
       .attr("height", function(d) { return height - y(d.CrimeCount); }); 
+};
     
   </script>
 </body>
