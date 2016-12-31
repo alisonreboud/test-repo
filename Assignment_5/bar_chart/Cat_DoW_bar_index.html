@@ -89,9 +89,7 @@ var svg = d3.select("body").append("svg")
       .attr("x", function(d) { return x(d.DayOfWeek); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.CrimeCount); })
-      .attr("height", function(d) { return height - y(d.CrimeCount); });
-
-);  
+      .attr("height", function(d) { return height - y(d.CrimeCount); }); 
     
   </script>
 </body>
