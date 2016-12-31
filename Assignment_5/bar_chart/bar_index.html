@@ -73,9 +73,9 @@
           .attr("height", function(d) { return height - y(d); });
     }
 
-    d3.json("myfile.geojson", function(res) {
+    d3.json("myfile_first_fifty.geojson", function(res) {
       var data = res.features.map(function(d){
-        return d.properties.profit;
+        return d.properties.category;
       });
       var labels = res.features.map(function(d, i){
         return i;
