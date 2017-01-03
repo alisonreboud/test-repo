@@ -2,7 +2,7 @@
 <head>
   <title>San Francisco Crime Map</title>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  <script src="sf_neighbourhoods.js"></script>
+  <script src="sf_neighbourhoods2.js"></script>
   <script src="sf_crime.geojson"></script>
 </head>
 <body>
@@ -13,7 +13,7 @@ var svg = d3.select( "body" )
   .append( "svg" )
   .attr( "width", width )
   .attr( "height", height );
-var sf_neighbourhoods = svg.append( "g" );
+var sf_neighbourhoods2 = svg.append( "g" );
 var albersProjection = d3.geo.albers()
   .scale( 190000 )
   .rotate( [122.419,0] )
@@ -21,8 +21,8 @@ var albersProjection = d3.geo.albers()
   .translate( [width/2,height/2] );
 var geoPath = d3.geo.path()
     .projection( albersProjection );
-sf_neighbourhoods.selectAll( "path" )
-  .data( sf_neighbourhoods_json.features )
+sf_neighbourhoods2.selectAll( "path" )
+  .data( sf_neighbourhoods2_json.features )
   .enter()
   .append( "path" )
   .attr( "fill", "#ccc" )
