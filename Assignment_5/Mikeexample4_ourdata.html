@@ -29,7 +29,7 @@ sf_neighbourhoods.selectAll( "path" )
   .attr( "d", geoPath );
 var crimes = svg.append( "g" );
 crimes.selectAll( "path" )
-  .data( sf_crime_json.features )
+  .data( sf_crime_geojson.features )
   .enter()
   .append( "path" )
   .attr( "fill", "#900" )
