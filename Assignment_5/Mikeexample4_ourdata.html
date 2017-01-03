@@ -20,7 +20,7 @@ var albersProjection = d3.geo.albers()
   .scale( 190000 )
   .rotate( [122.419,0] )
   .center( [0, 37.775] )
-  .translate( [width/2,height/2] );
+  .translate( [width/1.5,height/1.5] );
 var geoPath = d3.geo.path()
     .projection( albersProjection );
 sfpd_districts.selectAll( "path" )
@@ -36,7 +36,7 @@ crimes.selectAll( "path" )
   .append( "path" )
   .attr( "fill", "#900" )
   .attr( "stroke", "#999" )
-  .attr("r", 5)
+  //.attr("r", 0.1)
   .attr( "d", geoPath )
 
   </script>
