@@ -1,6 +1,8 @@
 Could just copy and edit this? https://github.com/tyz910/sf-crime-map
 
+
 Useful links:
+
 https://www.kaggle.com/c/sf-crime
 https://www.kaggle.com/mircat/sf-crime/violent-crime-mapping
 https://www.kaggle.com/benhamner/sf-crime/san-francisco-top-crimes-map/code
@@ -14,3 +16,15 @@ https://www.kaggle.com/ampaho/sf-crime/white-collar-vs-blue-collar-crime-in-sf/c
 http://maptimeboston.github.io/d3-maptime/#/1
 http://chimera.labs.oreilly.com/books/1230000000345/ch12.html
 https://www.dataiku.com/learn/guide/tutorials/draw-sfdp-map.html
+http://bl.ocks.org/ninjaPixel/7f244063ca7171fc9a67
+http://leafletjs.com/examples/geojson/
+https://medium.com/@mbostock
+https://developers.google.com/maps/documentation/javascript/visualization
+
+
+Bar chart links for json data:
+
+http://plnkr.co/edit/eqJ7AkzWpHO4ZQENkXgy?p=preview
+http://bl.ocks.org/d3noob/8952219
+http://www.d3noob.org/2014/02/grouping-and-summing-data-using-d3nest.html
+https://bost.ocks.org/mike/bar/
