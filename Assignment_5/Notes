@@ -21,6 +21,10 @@ http://leafletjs.com/examples/geojson/
 https://medium.com/@mbostock
 https://developers.google.com/maps/documentation/javascript/visualization
 
+To add info to data ponits on mouseover:
+
+https://www.mapbox.com/help/markers/#simple-style
+
 
 Bar chart links for json data:
 
@@ -28,3 +32,4 @@ http://plnkr.co/edit/eqJ7AkzWpHO4ZQENkXgy?p=preview
 http://bl.ocks.org/d3noob/8952219
 http://www.d3noob.org/2014/02/grouping-and-summing-data-using-d3nest.html
 https://bost.ocks.org/mike/bar/
+
