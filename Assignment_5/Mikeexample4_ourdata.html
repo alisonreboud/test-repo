@@ -42,6 +42,14 @@ crimes.selectAll( "path" )
   .attr( "stroke", "#999" )
   //.attr("r", 0.1)
   .attr( "d", geoPath )
+  .on("mouseover", 
+            function(d) {
+              d3.select(this).attr("fill", "#999");
+            })
+        .on("mouseout", 
+            function(d) {
+              d3.select(this).attr("fill", "#900");
+            })
 
   </script>
   </div>
