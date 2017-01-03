@@ -20,7 +20,7 @@ var albersProjection = d3.geo.albers()
   .scale( 190000 )
   .rotate( [122.419,0] )
   .center( [0, 37.775] )
-  .translate( [width/2.5,height/2.5] );
+  .translate( [width/1,height/2.5] );
 var geoPath = d3.geo.path()
     .projection( albersProjection );
 sfpd_districts.selectAll( "path" )
