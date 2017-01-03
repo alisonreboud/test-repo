@@ -37,7 +37,14 @@ crimes.selectAll( "path" )
   .attr( "fill", "#900" )
   .attr( "stroke", "#999" )
   .attr("r", 0.1)
-  .attr( "d", geoPath );
+  .attr( "d", geoPath )
+  .attr("data-legend",function(d) { return d.name});
+    
+legend = svg.append("g")
+  .attr("class","legend")
+  .attr("transform","translate(50,30)")
+  .style("font-size","12px")
+  .call(d3.legend)
   </script>
 </body>
 </html>
