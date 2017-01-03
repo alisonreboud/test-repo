@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title>San Francisco Crime Map</title>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="sf_neighbourhoods2.js"></script>
+  <script src="sf_crime.geojson"></script>
+</head>
+<body>
+  <h1 align="center"> Assignment 5: Crime Map of San Francisco, 1/1/2003-13/5/2015 </h1>
+  <h2 align="center"> By Alison Reboud, Thomas Schleider & Karina O'Neill </h2>
+  <script>
+var width = 840,
+    height = 696;
+var svg = d3.select( "body" )
+  .append( "svg" )
+  .attr( "width", width )
+  .attr( "height", height );
+var sf_neighbourhoods2 = svg.append( "g" );
+var albersProjection = d3.geo.albers()
+  .scale( 190000 )
+  .rotate( [122.419,0] )
+  .center( [0, 37.775] )
+  .translate( [width/2,height/2] );
+var geoPath = d3.geo.path()
+    .projection( albersProjection );
+sf_neighbourhoods2.selectAll( "path" )
+  .data( sf_neighbourhoods2_json.features )
+  .enter()
+  .append( "path" )
+  .attr( "fill", "#90EE90" )
+  .attr( "d", geoPath );
+var crimes = svg.append( "g" );
+crimes.selectAll( "path" )
+  .data( sf_crime_geojson.features )
+  .enter()
+  .append( "path" )
+  .attr( "fill", "#900" )
+  .attr( "stroke", "#999" )
+  .attr("r", 0.1)
+  .attr( "d", geoPath );
+  </script>
+</body>
+</html>
