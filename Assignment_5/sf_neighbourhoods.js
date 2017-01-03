@@ -1,4 +1,4 @@
-var sf_neighborhoods_json = {
+var sf_neighbourhoods_json = {
     "features" : [{
       "geometry" : {
         "geometries" : [{
