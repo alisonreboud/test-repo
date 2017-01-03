@@ -27,9 +27,9 @@ sf_neighbourhoods.selectAll( "path" )
   .append( "path" )
   .attr( "fill", "#ccc" )
   .attr( "d", geoPath );
-/*var rodents = svg.append( "g" );
-rodents.selectAll( "path" )
-  .data( rodents_json.features )
+var crimes = svg.append( "g" );
+crimes.selectAll( "path" )
+  .data( sf_crime_json.features )
   .enter()
   .append( "path" )
   .attr( "fill", "#900" )
