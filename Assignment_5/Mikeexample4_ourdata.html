@@ -5,7 +5,7 @@
   <script src="sf_neighbourhoods2.js"></script>
   <script src="sf_crime.geojson"></script>
 </head>
-<body>
+<body style="background-color: #CCC;">
   <script>
 var width = 700,
     height = 580;
@@ -25,7 +25,7 @@ sf_neighbourhoods2.selectAll( "path" )
   .data( sf_neighbourhoods2_json.features )
   .enter()
   .append( "path" )
-  .attr( "fill", "#ccc" )
+  .attr( "fill", "#90EE90" )
   .attr( "d", geoPath );
 var crimes = svg.append( "g" );
 crimes.selectAll( "path" )
