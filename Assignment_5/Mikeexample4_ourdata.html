@@ -104,12 +104,12 @@ rows.forEach(function(r) {
         };
     }
     counts[key].count++;
+    console.log(counts)
 });
 
 var data = [];
 Object.keys(counts).forEach(function(key) {
     data.push(counts[key]);
-  console.log(data)
 });   
 });
 
