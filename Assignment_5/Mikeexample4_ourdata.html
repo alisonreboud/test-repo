@@ -52,7 +52,7 @@
   <script>
 var width = 840,
     height = 696;
-var svg = d3.select( "body" )
+var svg = d3.select( "sfmap" )
   .append( "svg" )
   .attr( "width", width )
   .attr( "height", height );
@@ -94,7 +94,7 @@ crimes.selectAll( "path" )
               <svg2 width="960" height="500"></svg2>
        <h3>Bar Chart Visualisation by Day of the Week</h3>
           <script>
-    var svg2 = d3.select("svg"),
+    var svg2 = d3.select("barchart"),
     margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = +svg2.attr("width") - margin.left - margin.right,
     height = +svg2.attr("height") - margin.top - margin.bottom;
