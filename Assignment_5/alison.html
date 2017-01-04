@@ -9,6 +9,18 @@
   <h1 align="center"> Assignment 5: Crime Map of San Francisco, 1/1/2003-13/5/2015 </h1>
   <h2 align="center"> By Alison Reboud, Thomas Schleider & Karina O'Neill </h2>
   <script>
+    
+    
+    d3.csv("sf_crime.csv", function(error, datacs) {
+	 var datacs = d3.nest()
+	  .key(function(d) { return d.DayOfWeek;})
+	  .rollup(function(d) { 
+	   return d3.sum(d, function(g) {return g.Category; });
+	  datacs.forEach(function(d) {
+		 d.DayOfWeek = d.key;
+		 d.Category = +d.values;
+		});
+	  }).entries(datacs);
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 var width = 840,
     height = 696;
@@ -31,13 +43,13 @@ sf_neighbourhoods2.selectAll( "path" )
   .attr( "fill", "#90EE90" )
   .attr( "d", geoPath );
     
-for (var i = 0; i <10000; i++){
+//for (var i = 0; i <10000; i++){
 var crimes = svg.append( "g" );
 crimes.selectAll( "path" )
   .data( sf_crime_geojson.features )
   .enter()
   .append( "path" )
-  .attr( "fill",  {return color(d.sf_crime_geojson.features[1].properties.Category); })
+  .attr( "fill",  {return color(d.Category); })
   .attr( "stroke", "#999" )
   .attr("r", 0.1)
   .attr( "d", geoPath );}
