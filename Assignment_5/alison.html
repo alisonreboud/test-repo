@@ -30,16 +30,17 @@ sf_neighbourhoods2.selectAll( "path" )
   .append( "path" )
   .attr( "fill", "#90EE90" )
   .attr( "d", geoPath );
+    
+for (var i = 0; i <10000){
 var crimes = svg.append( "g" );
 crimes.selectAll( "path" )
   .data( sf_crime_geojson.features )
   .enter()
   .append( "path" )
-  .attr( "fill", function(d) { for (i = 0; i <10000)return color(
-d.sf_crime_geojson.features[i].properties.Category); })
+  .attr( "fill",  {return color(d.sf_crime_geojson.features[i].properties.Category); })
   .attr( "stroke", "#999" )
   .attr("r", 0.1)
-  .attr( "d", geoPath );
+  .attr( "d", geoPath );}
   </script>
 </body>
 </html>
