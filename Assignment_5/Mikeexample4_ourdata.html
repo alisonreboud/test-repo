@@ -47,11 +47,9 @@
   <h1 align="center"> Assignment 5: Crime of San Francisco, 1/1/2003-13/5/2015 </h1>
   <h2 align="center"> By Alison Reboud, Thomas Schleider & Karina O'Neill </h2>
   </div>
-  <div id="container1">
   <div id="sfmap" style="float: both; font-size: 20px; width: 100%">
     <h3>Interactive Map Visualisation</h3>
   <script>
-    
 var width = 840,
     height = 696;
 var svg = d3.select( "body" )
@@ -92,8 +90,6 @@ crimes.selectAll( "path" )
 
   </script>
   </div>
-    </div>
-      <div id="container2">
      <div id="barchart" style="float: right; font-size: 20px; width: 100%">
        <h3>Bar Chart Visualisation by Day of the Week</h3>
        <svg width="960" height="500"></svg>
@@ -148,13 +144,10 @@ d3.tsv("barchartdata.tsv", function(d) {
          <div class="contentDiv" style="float: right">
     <img class="arrow" src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png" />
     </div>
-    </div>
-    <div id="container3">
         <div id="findingstext1">
           <h3>Findings:</h3>
           <p>The map shows that...</p>
           <p>The bar chart shows that...</p>
       </div>
-  </div>
 </body>
 </html>
