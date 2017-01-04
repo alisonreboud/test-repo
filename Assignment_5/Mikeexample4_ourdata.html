@@ -86,7 +86,7 @@ crimes.selectAll( "path" )
 
 d3.csv("sf_crime.csv", function(d) {
   return {
-    DayOfWeek: new Date(d.DayOfWeek),
+    DayOfWeek: new (d.DayOfWeek),
     Category: d.Category
   };
 }, 
