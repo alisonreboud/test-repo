@@ -35,7 +35,8 @@ crimes.selectAll( "path" )
   .data( sf_crime_geojson.features )
   .enter()
   .append( "path" )
-  .attr( "fill", , function(d) { return color(d.sf_crime_geojson.features.properties.Category); })
+  .attr( "fill", function(d) { for (i = 0; i <10000)return color(
+d.sf_crime_geojson.features[i].properties.Category); })
   .attr( "stroke", "#999" )
   .attr("r", 0.1)
   .attr( "d", geoPath );
