@@ -112,7 +112,7 @@ d3.tsv("barchartdata.tsv", function(d) {
   if (error) throw error;
 
   x.domain(data.map(function(d) { return d.DayOfWeek; }));
-  y.domain([14000, d3.max(data, function(d) { return d.NoOfCrimes; })]);
+  y.domain([0, d3.max(data, function(d) { return d.NoOfCrimes; })]);
 
   g.append("g")
       .attr("class", "axis axis--x")
