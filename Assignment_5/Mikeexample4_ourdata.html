@@ -50,7 +50,6 @@
   <div id="container1">
   <div id="sfmap" style="float: left; font-size: 20px; width: 48%;">
     <h3>Interactive Map Visualisation</h3>
-    <svg width="960" height="500"></svg>
   <script>
     
 var width = 840,
@@ -98,7 +97,9 @@ crimes.selectAll( "path" )
      <div id="barchart" style="float: right; font-size: 20px; width: 48%;">
        <h3>Bar Chart Visualisation by Day of the Week</h3>
     <script>
-      var svg = d3.select("svg"),
+    var width = 840,
+    height = 696;
+    var svg = d3.select("svg"),
     margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
