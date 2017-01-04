@@ -82,6 +82,35 @@ crimes.selectAll( "path" )
      <div id="barchart" style="float: right; font-size: 20px; width: 48%;">
        <h3>Bar Chart Visualisation by Day of the Week</h3>
     <script>
+      var dataset;
+
+d3.csv("sf_crime.csv", function(d) {
+  return {
+    DayOfWeek: new Date(d.DayOfWeek),
+    Category: d.Category
+  };
+}, 
+
+function(error, rows) {
+    dataset = rows;
+    var counts = {};
+rows.forEach(function(r) {
+    var key = r.DayOfWeek + r.Category;
+    if (!counts[key]) {
+        counts[key] = {
+           dayofweek: r.DayOfWeek,
+           category: r.Category,
+           count: 0
+        };
+    }
+    counts[key].count++;
+});
+
+var data = [];
+Object.keys(counts).forEach(function(key) {
+    data.push(counts[key]);
+});   
+});
     </script>
   </div>
     <div class="contentDiv" style="float: right">
