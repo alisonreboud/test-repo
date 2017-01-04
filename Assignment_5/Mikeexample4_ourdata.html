@@ -4,7 +4,6 @@
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="sfpd_districts.geojson"></script>
   <script src="sf_crime.geojson"></script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
   <style>
   .contentDiv {
     background-color: "#caf0fb";
@@ -23,11 +22,11 @@
     animation: bouncing 1s infinite ease-in-out;
     bottom: 0;
     display: block;
-    height: 50px;
-    left: 50%;
+    height: 80px;
+    left: 10%;
     margin-left: -25px;
     position: absolute;
-    width: 50px;
+    width: 80px;
 }
   </style>
 </head>
@@ -84,13 +83,6 @@ crimes.selectAll( "path" )
     Findings:
       <div class="contentDiv">
     <img class="arrow" src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png" />
-<script>
-  $("arrow").click(function() {
-    $('html,body').animate({
-        scrollTop: $(".barchart").offset().top},
-        'slow');
-});
-        </script>
     </div>
   </div>
     </div>
