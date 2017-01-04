@@ -22,7 +22,7 @@ var svg = d3.select( "body" )
   .attr( "height", height );
 var sfpd_districts = svg.append( "g" );
 var albersProjection = d3.geo.albers()
-  .scale( 190000 )
+  .scale( 100000 )
   .rotate( [122.419,0] )
   .center( [0, 37.775] )
   .translate( [width/2,height/2.5] );
