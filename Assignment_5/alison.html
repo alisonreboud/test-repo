@@ -37,8 +37,8 @@ var albersProjection = d3.geo.albers()
   .translate( [width/2,height/2] );
 var geoPath = d3.geo.path()
     .projection( albersProjection );
-sfpd_districts.geojson.selectAll( "path" )
-  .data( sfpd_districts.geojson.features )
+sfpd_districts.selectAll( "path" )
+  .data( sfpd_districts_geojson.features )
   .enter()
   .append( "path" )
   .attr( "fill", "#90EE90" )
