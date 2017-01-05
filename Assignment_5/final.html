@@ -76,7 +76,7 @@
           .data( sf_crime_geojson.features )
           .enter()
           .append( "path" )
-          .attr( "fill", .attr( "fill", function (d){console.log(color(d.properties.Category));
+          .attr( "fill", function (d){console.log(color(d.properties.Category));
 			      return color(d.properties.Category); }) )
           .attr( "stroke", "#999" )
           //.attr("r", 0.1)
@@ -87,7 +87,7 @@
                     })
                 .on("mouseout", 
                     function(d) {
-                      d3.select(this).attr("fill", .attr( "fill", function (d){return color(d.properties.Category); }));
+                      d3.select(this).attr("fill",function (d){return color(d.properties.Category); }));
                     })
       </script>
     </div>
