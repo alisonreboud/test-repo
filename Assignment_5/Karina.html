@@ -153,7 +153,7 @@
               .attr("y", function(d) { return y(d.NoOfCrimes); })
               .attr("width", x.bandwidth())
               .attr("height", function(d) { return height - y(d.NoOfCrimes); })
-		.call(d3.helper.tooltip(function (d) {return "DayOfWeek: <b>" + d.DayOfWeek + "</b><br/>NoOfCrimes: " + d.NoOfCrimes;}));
+		.call(d3.helper.tooltip(function (d) {return "Day Of Week: <b>" + d.DayOfWeek + "</b><br/>Number Of Crimes: " + d.NoOfCrimes;}));
         });
 	      
 	 function type(d) {
