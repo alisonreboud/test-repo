@@ -144,7 +144,7 @@
 		  })
         var g = svg2.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-	svg2.call(tip);
+	g.call(tip);
         d3.tsv("barchartdata.tsv", function(d) {
           d.NoOfCrimes = +d.NoOfCrimes;
           return d;
