@@ -1,0 +1,155 @@
+<html>
+  <head>
+    <title>San Francisco Crime Map</title>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="sfpd_districts.geojson"></script>
+    <script src="sf_crime.geojson"></script>
+    <style>
+      .bar {
+        fill: steelblue;
+      }
+      .bar:hover {
+        fill: brown;
+      }
+      .axis--x path {
+        display: none;
+      }
+      .contentDiv {
+        background-color: "#caf0fb";
+        height: 200px;
+        position: bottom;
+        width: 200px;
+      }
+      @keyframes bouncing {
+        0% {bottom: 0;}
+        50% {bottom: 20px;}
+        100% {bottom: 0;}
+      }
+      .arrow {
+          animation: bouncing 1s infinite ease-in-out;
+          bottom: 0;
+          display: block;
+          height: 80px;
+          left: 90%;
+          margin-left: -25px;
+          position: absolute;
+          width: 80px;
+      }
+    </style>
+  </head>
+  
+  <body style="background-color: #caf0fb;">
+    
+    <div id="titles">
+      <h1 align="center"> Assignment 5: Crime of San Francisco, 1/1/2003-13/5/2015 </h1>
+      <h2 align="center"> By Alison Reboud, Thomas Schleider & Karina O'Neill </h2>   
+    </div>
+    
+    <div id="sfmap" style="font-size: 20px; width: 100%">
+      <h3>Interactive Map Visualisation</h3>
+      <script>
+	      
+	var color = d3.scale.category20()
+        var width = 840,
+            height = 696;
+        var svg = d3.select( "body" )
+          .append( "svg" )
+          .attr( "width", width )
+          .attr( "height", height );
+        var sfpd_districts = svg.append( "g" );
+        var albersProjection = d3.geo.albers()
+          .scale( 250000 )
+          .rotate( [122.419,0] )
+          .center( [0, 37.775] )
+          .translate( [width/2,height/2.5] );
+        var geoPath = d3.geo.path()
+            .projection( albersProjection );
+        sfpd_districts.selectAll( "path" )
+          .data( sfpd_districts_geojson.features )
+          .enter()
+          .append( "path" )
+          .attr( "fill", "#72d26f" )
+          .attr( "d", geoPath );
+        var crimes = svg.append( "g" );
+        crimes.selectAll( "path" )
+          .data( sf_crime_geojson.features )
+          .enter()
+          .append( "path" )
+          .attr( "fill", function (d){console.log(color(d.properties.Category));
+			      return color(d.properties.Category); })
+	  //.text(function(d) { return d.properties.Category; });
+          .attr( "stroke", "#999" )
+          //.attr("r", 0.1)
+          .attr( "d", geoPath )
+	  .on("mouseover", 
+                    function(d) {
+                      d3.select(this).attr("fill", "#999");
+		  	d3.text(function(d) { return d.properties.Category; });
+                    })
+                .on("mouseout", 
+                    function(d) {
+                      d3.select(this).attr("fill",function (d){return color(d.properties.Category); });
+                    })
+	      
+	     
+     
+      </script>
+    </div>
+    
+    <div id="barchart" style="font-size: 20px; width: 100%">
+            <h3>Bar Chart Visualisation by Day of the Week</h3>
+      <svg width="960" height="500" id="svg2"></svg>
+      <script>
+        var svg2 = d3.select("svg#svg2"),
+         margin = {top: 20, right: 20, bottom: 30, left: 40},
+          width = +svg2.attr("width") - margin.left - margin.right,
+         height = +svg2.attr("height") - margin.top - margin.bottom;
+        var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+            y = d3.scaleLinear().rangeRound([height, 0]);
+        var g = svg2.append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        d3.tsv("barchartdata.tsv", function(d) {
+          d.NoOfCrimes = +d.NoOfCrimes;
+          return d;
+        }, function(error, data) {
+          if (error) throw error;
+          x.domain(data.map(function(d) { return d.DayOfWeek; }));
+          y.domain([0, d3.max(data, function(d) { return d.NoOfCrimes; })]);
+          g.append("g")
+              .attr("class", "axis axis--x")
+              .attr("transform", "translate(0," + height + ")")
+              .call(d3.axisBottom(x));
+          g.append("g")
+              .attr("class", "axis axis--y")
+              .call(d3.axisLeft(y).ticks(10))
+            .append("text")
+              .attr("transform", "rotate(-90)")
+              .attr("y", 6)
+              .attr("dy", "0.71em")
+              .attr("text-anchor", "end")
+              .text("Number of Crimes");
+          g.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+              .attr("class", "bar")
+              .attr("x", function(d) { return x(d.DayOfWeek); })
+              .attr("y", function(d) { return y(d.NoOfCrimes); })
+              .attr("width", x.bandwidth())
+              .attr("height", function(d) { return height - y(d.NoOfCrimes); });
+        });
+      </script>
+    </div>
+    
+    <div class="contentDiv" style="float: right">
+      <img class="arrow" src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png" />
+    </div>
+    
+    <div id="findingstext1">
+      <h3>Findings:</h3>
+      <p>The map shows that...</p>
+      <p>The bar chart shows that...</p>
+    </div>
+    
+  </body>
+</html>
