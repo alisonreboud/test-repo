@@ -82,11 +82,9 @@
           .attr( "stroke", "#999" )
           //.attr("r", 0.1)
           .attr( "d", geoPath )
-	  .append("title")
-	  .text(function(d) { return d.properties.Category; });
-          .on("mouseover", 
+	  .on("mouseover", 
                     function(d) {
-                      //d3.select(this).attr("fill", "#999");
+                      d3.select(this).attr("fill", "#999");
 		  	d3.text(function(d) { return d.properties.Category; });
                     })
                 .on("mouseout", 
