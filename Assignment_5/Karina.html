@@ -10,7 +10,7 @@
         fill: mediumpurple;
       }
       .bar:hover {
-        fill: brown;
+        fill: strong green;
       }
       .axis--x path {
         display: none;
@@ -69,7 +69,7 @@
           .data( sfpd_districts_geojson.features )
           .enter()
           .append( "path" )
-          .attr( "fill", "#72d26f" )
+          .attr( "fill", "#72d72d" )
           .attr( "d", geoPath );
         var crimes = svg.append( "g" );
         crimes.selectAll( "path" )
