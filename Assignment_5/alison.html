@@ -49,11 +49,11 @@ var crimes = svg.append( "g" );
 crimes.selectAll( "path" )
   .data( sf_crime_geojson.features )
   .enter()
-  .append( "path" )
+  .append( "circle" )
   .attr( "fill", function (d){return color(d.Category); })
   .attr( "stroke", "#999" )
-  .attr("r", 0.1)
-  .attr( "d", geoPath );}
+  .attr("r", 0.1);}
+  //.attr( "d", geoPath );}
 	   )
   </script>
 </body>
