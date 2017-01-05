@@ -9,11 +9,9 @@
       .bar {
         fill: steelblue;
       }
-
       .bar:hover {
         fill: brown;
       }
-
       .axis--x path {
         display: none;
       }
@@ -23,13 +21,11 @@
         position: bottom;
         width: 200px;
       }
-
       @keyframes bouncing {
         0% {bottom: 0;}
         50% {bottom: 20px;}
         100% {bottom: 0;}
       }
-
       .arrow {
           animation: bouncing 1s infinite ease-in-out;
           bottom: 0;
@@ -53,6 +49,8 @@
     <div id="sfmap" style="font-size: 20px; width: 100%">
       <h3>Interactive Map Visualisation</h3>
       <script>
+	      
+	var color = d3.scale.category20()
         var width = 840,
             height = 696;
         var svg = d3.select( "body" )
@@ -78,18 +76,26 @@
           .data( sf_crime_geojson.features )
           .enter()
           .append( "path" )
-          .attr( "fill", "#900" )
+          .attr( "fill", function (d){console.log(color(d.properties.Category));
+			      return color(d.properties.Category); })
+	  //.text(function(d) { return d.properties.Category; });
           .attr( "stroke", "#999" )
           //.attr("r", 0.1)
           .attr( "d", geoPath )
+	  .append("title")
+	  .text(function(d) { return d.properties.Category; });
           .on("mouseover", 
                     function(d) {
-                      d3.select(this).attr("fill", "#999");
+                      //d3.select(this).attr("fill", "#999");
+		  	d3.text(function(d) { return d.properties.Category; });
                     })
                 .on("mouseout", 
                     function(d) {
-                      d3.select(this).attr("fill", "#900");
+                      d3.select(this).attr("fill",function (d){return color(d.properties.Category); });
                     })
+	      
+	     
+     
       </script>
     </div>
     
@@ -101,27 +107,21 @@
          margin = {top: 20, right: 20, bottom: 30, left: 40},
           width = +svg2.attr("width") - margin.left - margin.right,
          height = +svg2.attr("height") - margin.top - margin.bottom;
-
         var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
             y = d3.scaleLinear().rangeRound([height, 0]);
-
         var g = svg2.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
         d3.tsv("barchartdata.tsv", function(d) {
           d.NoOfCrimes = +d.NoOfCrimes;
           return d;
         }, function(error, data) {
           if (error) throw error;
-
           x.domain(data.map(function(d) { return d.DayOfWeek; }));
           y.domain([0, d3.max(data, function(d) { return d.NoOfCrimes; })]);
-
           g.append("g")
               .attr("class", "axis axis--x")
               .attr("transform", "translate(0," + height + ")")
               .call(d3.axisBottom(x));
-
           g.append("g")
               .attr("class", "axis axis--y")
               .call(d3.axisLeft(y).ticks(10))
@@ -131,7 +131,6 @@
               .attr("dy", "0.71em")
               .attr("text-anchor", "end")
               .text("Number of Crimes");
-
           g.selectAll(".bar")
             .data(data)
             .enter().append("rect")
