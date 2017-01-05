@@ -5,12 +5,13 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="sfpd_districts.geojson"></script>
     <script src="sf_crime.geojson"></script>
+    <script type="text/javascript" src="tooltips.js"></script>
     <style>
       .bar {
-        fill: steelblue;
+        fill: mediumpurple;
       }
       .bar:hover {
-        fill: brown;
+        fill: chartreuse;
       }
       .axis--x path {
         display: none;
@@ -36,12 +37,23 @@
           position: absolute;
           width: 80px;
       }
+      .tooltip {
+	    background-color: rgba(160, 170, 187, 0.5);
+	    margin: 10px;
+	    height: 55px;
+	    width: 180px;
+	    padding-left: 10px;
+	    padding-top: 10px;
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 10px;
+	    border-radius: 10px;
+	  }
     </style>
   </head>
   
   <body style="background-color: #caf0fb;">
     
-    <div id="titles">
+    <div id="titles" style="background-color: mediumpurple;">
       <h1 align="center"> Assignment 5: Crime of San Francisco, 1/1/2003-13/5/2015 </h1>
       <h2 align="center"> By Alison Reboud, Thomas Schleider & Karina O'Neill </h2>   
     </div>
@@ -69,7 +81,7 @@
           .data( sfpd_districts_geojson.features )
           .enter()
           .append( "path" )
-          .attr( "fill", "#72d26f" )
+          .attr( "fill", "#7FFF00" )
           .attr( "d", geoPath );
         var crimes = svg.append( "g" );
         crimes.selectAll( "path" )
@@ -102,13 +114,17 @@
       <svg width="960" height="500" id="svg2"></svg>
       <script>
         var svg2 = d3.select("svg#svg2"),
+	    
          margin = {top: 20, right: 20, bottom: 30, left: 40},
           width = +svg2.attr("width") - margin.left - margin.right,
          height = +svg2.attr("height") - margin.top - margin.bottom;
+	      
         var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
             y = d3.scaleLinear().rangeRound([height, 0]);
+	      
         var g = svg2.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	      
         d3.tsv("barchartdata.tsv", function(d) {
           d.NoOfCrimes = +d.NoOfCrimes;
           return d;
@@ -136,8 +152,14 @@
               .attr("x", function(d) { return x(d.DayOfWeek); })
               .attr("y", function(d) { return y(d.NoOfCrimes); })
               .attr("width", x.bandwidth())
-              .attr("height", function(d) { return height - y(d.NoOfCrimes); });
+              .attr("height", function(d) { return height - y(d.NoOfCrimes); })
+		.call(d3.helper.tooltip(function (d) {return "Day Of Week: <b>" + d.DayOfWeek + "</b><br/>Number Of Crimes: " + d.NoOfCrimes;}));
         });
+	      
+	 function type(d) {
+  d.NoOfCrimes = +d.NoOfCrimes;
+  return d;
+}
       </script>
     </div>
     
@@ -146,9 +168,9 @@
     </div>
     
     <div id="findingstext1">
-      <h3>Findings:</h3>
-      <p>The map shows that...</p>
-      <p>The bar chart shows that...</p>
+      <h3>Description and Findings:</h3>
+      <p>The map is the outline of the San Francisco district according to police data. It shows a data point for each of the 10,000 crimes at their recorded location. They are coloured according to crime category, for example the darker orange denotes...</p>
+      <p>For the bar chart calculations, we used Python. For each day of the week, we totalled the number of crimes on that day out of the 10,000 crimes. We hypothesised that there would be more crimes on the weekends, however was not the case. Most crimes were committed on a Wednesday, followed by Thursday and Friday. There was not a large variation across all days of the week, however. When a bar is hovered over with the cursor, the exact number of crimes figure is displayed, in case the exact figures are needed by the viewer.</p>
     </div>
     
   </body>
