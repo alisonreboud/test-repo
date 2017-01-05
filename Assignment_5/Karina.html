@@ -102,7 +102,7 @@
                     function(d) {
                       d3.select(this).attr("fill",function (d){return color(d.properties.Category); });
                     })
-	  .call(d3.helper.tooltip(function (d) {return "Category: <b>" + d.properties.Category;}));
+	  .call(d3.helper.tooltip(function (d) {return "Date: <b>" + d.properties.Date + "</b><br/>Category: " + d.Category + "</b><br/>Resolution: " + d.Resolution + "</b><br/>Description: " + d.Descript;}));
 	      
 	     
      
