@@ -46,7 +46,7 @@ sfpd_districts.selectAll( "path" )
     
 //for (var i = 0; i <10000; i++){
 var crimes = svg.append( "g" );
-crimes.selectAll( "path" )
+crimes.selectAll( "circle" )
   .data( sf_crime_geojson.features )
   .enter()
   .append( "circle" )
