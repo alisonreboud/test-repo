@@ -87,7 +87,7 @@
                     function(d) {
                       //d3.select(this).attr("fill", "#999");
 		  	d3.select(this).enter().append("text")
-            		text(function(d) { return d.properties.Category; });
+            		.text(function(d) { return d.properties.Category; });
                     })
                 .on("mouseout", 
                     function(d) {
