@@ -46,9 +46,11 @@ sfpd_districts.selectAll( "path" )
     
 //for (var i = 0; i <10000; i++){
 var crimes = svg.append( "g" );
-crimes.selectAll( "circle" )
+//crimes.selectAll( "circle" )
+crimes.selectAll( "path" )
   .data( sf_crime_geojson.features )
   .enter()
+.append("path")
   .append( "circle" )
   .attr( "fill", function (d){console.log(d.properties.Category);return color(d.properties.Category); })
   .attr( "stroke", "#999" )
