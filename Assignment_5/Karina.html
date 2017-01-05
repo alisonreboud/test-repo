@@ -5,7 +5,6 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="sfpd_districts.geojson"></script>
     <script src="sf_crime.geojson"></script>
-    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <style>
       .bar {
         fill: mediumpurple;
@@ -37,34 +36,6 @@
           position: absolute;
           width: 80px;
       }
-      .d3-tip {
-	  line-height: 1;
-	  font-weight: bold;
-	  padding: 12px;
-	  background: rgba(0, 0, 0, 0.8);
-	  color: #fff;
-	  border-radius: 2px;
-	}
-
-	/* Creates a small triangle extender for the tooltip */
-	.d3-tip:after {
-	  box-sizing: border-box;
-	  display: inline;
-	  font-size: 10px;
-	  width: 100%;
-	  line-height: 1;
-	  color: rgba(0, 0, 0, 0.8);
-	  content: "\25BC";
-	  position: absolute;
-	  text-align: center;
-	}
-
-	/* Style northward tooltips differently */
-	.d3-tip.n:after {
-	  margin: -1px 0 0 0;
-	  top: 100%;
-	  left: 0;
-	}
     </style>
   </head>
   
@@ -136,15 +107,8 @@
          height = +svg2.attr("height") - margin.top - margin.bottom;
         var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
             y = d3.scaleLinear().rangeRound([height, 0]);
-	var tip = d3.tip()
-		  .attr('class', 'd3-tip')
-		  .offset([-10, 0])
-		  .html(function(d) {
-		    return "<strong>No. Of Crimes:</strong> <span style='color:red'>" + d.NoOfCrimes + "</span>";
-		  })
         var g = svg2.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-	g.call(tip);
         d3.tsv("barchartdata.tsv", function(d) {
           d.NoOfCrimes = +d.NoOfCrimes;
           return d;
