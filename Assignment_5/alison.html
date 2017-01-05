@@ -50,7 +50,7 @@ crimes.selectAll( "circle" )
   .data( sf_crime_geojson.features )
   .enter()
   .append( "circle" )
-  .attr( "fill", function (d){return color(d.Category); })
+  .attr( "fill", function (d){console.log(d);return color(d.Category); })
   .attr( "stroke", "#999" )
   .attr("r", 0.1);}
   //.attr( "d", geoPath );}
