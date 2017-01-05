@@ -97,12 +97,13 @@
                     function(d) {
                       d3.select(this).attr("fill", "#999");
 		  	d3.text(function(d) { return d.properties.Category; });
+			.call(d3.helper.tooltip(function (d) {return "Date: <b>" + d.properties.Dates + "</b><br/>Category: " + d.properties.Category + "</b><br/>Resolution: " + d.properties.Resolution + "</b><br/>Description: " + d.properties.Descript;}));
                     })
                 .on("mouseout", 
                     function(d) {
                       d3.select(this).attr("fill",function (d){return color(d.properties.Category); });
                     })
-	  .call(d3.helper.tooltip(function (d) {return "Date: <b>" + d.properties.Dates + "</b><br/>Category: " + d.properties.Category + "</b><br/>Resolution: " + d.properties.Resolution + "</b><br/>Description: " + d.properties.Descript;}));
+	  
 	      
 	     
      
