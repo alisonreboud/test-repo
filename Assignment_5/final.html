@@ -78,7 +78,7 @@
           .append( "path" )
           .attr( "fill", function (d){console.log(color(d.properties.Category));
 			      return color(d.properties.Category); })
-	  .text(function(d) { return d.properties.Category; });
+	  //.text(function(d) { return d.properties.Category; });
           .attr( "stroke", "#999" )
           //.attr("r", 0.1)
           .attr( "d", geoPath )
@@ -90,6 +90,9 @@
                     function(d) {
                       d3.select(this).attr("fill",function (d){return color(d.properties.Category); });
                     })
+	      
+	     crimes.append("title")
+      .text(function(d) { return d.properties.Category; });
       </script>
     </div>
     
