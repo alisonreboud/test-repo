@@ -54,7 +54,8 @@ crimes.selectAll( ".crimes" )
 .append("path")
 	    .attr("class","crimes")
   //.append( "circle" )
-  .attr( "fill", function (d){console.log(d.properties.Category);return color(d.properties.Category); })
+  .attr( "fill", function (d){//console.log(d.properties.Category);
+			      return color(d.properties.Category); })
   .attr( "stroke", "#999" )
   .attr("r", 0.1)
   .attr( "d", geoPath );}
