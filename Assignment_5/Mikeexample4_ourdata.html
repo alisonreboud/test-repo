@@ -94,10 +94,10 @@
     </div>
     
     <div id="barchart" style="font-size: 20px; width: 100%">
-      <svg2 width="960" height="500"></svg2>
+      <svg width="960" height="500" id="svg2"></svg>
       <h3>Bar Chart Visualisation by Day of the Week</h3>
       <script>
-        var svg = d3.select("svg"),
+        var svg2 = d3.select("svg#svg2"),
          margin = {top: 20, right: 20, bottom: 30, left: 40},
           width = +svg.attr("width") - margin.left - margin.right,
          height = +svg.attr("height") - margin.top - margin.bottom;
