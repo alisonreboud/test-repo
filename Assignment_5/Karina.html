@@ -5,6 +5,7 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="sfpd_districts.geojson"></script>
     <script src="sf_crime.geojson"></script>
+    <script type="text/javascript" src="tooltips.js"></script>
     <style>
       .bar {
         fill: mediumpurple;
@@ -36,6 +37,17 @@
           position: absolute;
           width: 80px;
       }
+      .tooltip {
+	    background-color: rgba(160, 170, 187, 0.5);
+	    margin: 10px;
+	    height: 70px;
+	    width: 200px;
+	    padding-left: 10px;
+	    padding-top: 10px;
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 10px;
+	    border-radius: 10px;
+	  }
     </style>
   </head>
   
@@ -102,13 +114,17 @@
       <svg width="960" height="500" id="svg2"></svg>
       <script>
         var svg2 = d3.select("svg#svg2"),
+	    
          margin = {top: 20, right: 20, bottom: 30, left: 40},
           width = +svg2.attr("width") - margin.left - margin.right,
          height = +svg2.attr("height") - margin.top - margin.bottom;
+	      
         var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
             y = d3.scaleLinear().rangeRound([height, 0]);
+	      
         var g = svg2.append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	      
         d3.tsv("barchartdata.tsv", function(d) {
           d.NoOfCrimes = +d.NoOfCrimes;
           return d;
@@ -136,8 +152,14 @@
               .attr("x", function(d) { return x(d.DayOfWeek); })
               .attr("y", function(d) { return y(d.NoOfCrimes); })
               .attr("width", x.bandwidth())
-              .attr("height", function(d) { return height - y(d.NoOfCrimes); });
+              .attr("height", function(d) { return height - y(d.NoOfCrimes); })
+		.call(d3.helper.tooltip(function (d) {return "DayOfWeek: <b>" + d.DayOfWeek + "</b><br/>NoOfCrimes: " + d.NoOfCrimes;}));
         });
+	      
+	 function type(d) {
+  d.NoOfCrimes = +d.NoOfCrimes;
+  return d;
+}
       </script>
     </div>
     
