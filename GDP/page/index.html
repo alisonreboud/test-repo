@@ -6,69 +6,104 @@
 -->
 <html>
 	<head>
-		<title>Overflow by HTML5 UP</title>
+		<title>ICT patents, GDP and Digital skills in Europe</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
+    <style>
+          .tooltip {
+	    font-size: 15px;
+	    background-color: #ffcb66;
+	    margin: 10px;
+	    height: 190px;
+	    width: 180px;
+	    padding-left: 10px;
+	    padding-top: 10px;
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 10px;
+	    border-radius: 10px;
+	  }
+
+    </style> 
+    
+    
+    </style>
+    
 	<body>
+        
+        <script src="https:////d3js.org/d3.v3.min.js"></script>
+        <script type="text/javascript" src="http://alisonreboud.github.io/test-repo/Assignment_5/tooltips.js"></script>
+        
 
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<h1>Overflow</h1>
-					<p>By HTML5 UP</p>
+					<h1>ICT patents, GDP and Digital skills in Europe </h1>
+					<p>By Alison Reboud and Thomas Schleider</p>
 				</header>
 				<footer>
-					<a href="#banner" class="button style2 scrolly-middle">Proceed as anticipated</a>
+					<a href="#banner" class="button style2 scrolly-middle">Introduction</a>
 				</footer>
 			</section>
 
 		<!-- Banner -->
 			<section id="banner">
 				<header>
-					<h2>This is Overflow</h2>
+					<h2>How does knowledge shape the economy?</h2>
 				</header>
-				<p>A brand new site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>.<br />
-				It’s fully responsive, built on <strong>skel</strong>, and of course entirely free<br />
-				under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
+                <p>Information and communications technology (ICT) is more relevant than ever today. <br/> By taking a look at patent application we chose one of several possible indicators of a country's performance in research.<br/>
+				We were mostly curious if there were correlations or interactions with the following points:<br /><br />
+				</p>
+                <p>1. The GDP (nominal) per capita of a country</p>
+                <p>2. The percentage of the ICT sector of the GDP</p>
+                <p>3. The average level of digital skills of the popluation in form of advanced internet skills</p>
 				<footer>
-					<a href="#first" class="button style2 scrolly">Act on this message</a>
+					<a href="#first" class="button style2 scrolly">Visualisations  (optimised for 1980x1080)</a>
 				</footer>
 			</section>
 
 		<!-- Feature 1 -->
 			<article id="first" class="container box style1 right">
-				<a href="#" class="image fit"><iframe width="100%" height="100%" frameborder="0" src="https://alisonre.carto.com/builder/31273033-87f7-4390-9bf9-1317d45585b2/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe></a>
+				<a href="#" class="image fit"><iframe width="100%" height="100%" frameborder="0" src="https://alisonre.carto.com/builder/27e9ff94-dd94-11e6-8de6-0ee66e2c9693/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe></a>
 				<div class="inner">
 					<header>
-						<h2>Lorem ipsum<br />
-						dolor sit amet</h2>
+						<h2>Map of 24 European countries by ICT patent applications</h2>
 					</header>
-					<p>Tortor faucibus ullamcorper nec tempus purus sed penatibus. Lacinia pellentesque eleifend vitae est elit tristique velit tempus etiam.</p>
+					<p> Observations : There seem to be a strong correlation between individual skills and the number of patents. The correlation does not always hold for patents and GDP. Let#s have a closer look to GDP.Other Indicators can be (de)selected on the left side</p>
 				</div>
 			</article>
+        
+        		
 
 		<!-- Feature 2 -->
 			<article class="container box style1 left">
-				<a href="#" class="image fit"><embed src="http://alisonreboud.github.io/test-repo/GDP/barchartgdp.html" width="100%" height="100%"  ></embed></a>
+				<a class="image fit" ><svg id="svg2" style="font-size:9px; font-weight:bold; width: 100%; height: 100%;"></svg></a>
 				<div class="inner">
 					<header>
-						<h2>Mollis posuere<br />
-						lectus lacus</h2>
+						<h2>A closer look</h2>
 					</header>
-					<p>Rhoncus mattis egestas sed fusce sodales rutrum et etiam ullamcorper.</p>
+					<p>What's the share of ICT in the GDP of European countries?</p>
 				</div>
+			</article>
+        
+        	<article  class="container box style1 right">
+				
+					<header>
+						<h2>Conclusion</h2>
+					</header>
+					<p>Other Indicators can be (de)selected on the left side OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOR CAN THEY</p>
+				
 			</article>
 
 		<!-- Portfolio -->
 			<article class="container box style2">
 				<header>
-					<h2>Magnis parturient</h2>
-					<p>Justo phasellus et aenean dignissim<br />
-					placerat cubilia purus lectus.</p>
+					<h2>Key findings</h2>
+					<p>The following section is for the observations<br />
+					that seemed the most relevant to us</p>
 				</header>
 				<div class="inner gallery">
 					<div class="row 0%">
@@ -86,201 +121,30 @@
 				</div>
 			</article>
 
-		<!-- Contact -->
-		<!--
-			<article class="container box style3">
-				<header>
-					<h2>Nisl sed ultricies</h2>
-					<p>Diam dignissim lectus eu ornare volutpat orci.</p>
-				</header>
-				<form method="post" action="#">
-					<div class="row 50%">
-						<div class="6u 12u$(mobile)"><input type="text" class="text" name="name" placeholder="Name" /></div>
-						<div class="6u$ 12u$(mobile)"><input type="text" class="text" name="email" placeholder="Email" /></div>
-						<div class="12u$">
-							<textarea name="message" placeholder="Message"></textarea>
-						</div>
-						<div class="12u$">
-							<ul class="actions">
-								<li><input type="submit" value="Send Message" /></li>
-							</ul>
-						</div>
-					</div>
-				</form>
-			</article>
-		-->
-		<!-- Generic -->
-		<!--
-			<article class="container box style3">
-				<header>
-					<h2>Generic Box</h2>
-					<p>Just a generic box. Nothing to see here.</p>
-				</header>
-				<section>
-					<header>
-						<h3>Paragraph</h3>
-						<p>This is a subtitle</p>
-					</header>
-					<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
-					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada <em>emphasized</em> ac turpis egestas. Morbi
-					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
-					amet risus elit.</p>
-				</section>
-				<section>
-					<header>
-						<h3>Blockquote</h3>
-					</header>
-					<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
-					tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
-				</section>
-				<section>
-					<header>
-						<h3>Divider</h3>
-					</header>
-					<p>Donec consectetur <a href="#">vestibulum dolor et pulvinar</a>. Etiam vel felis enim, at viverra
-					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-					posuere cubilia.</p>
-					<hr />
-					<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
-					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-					posuere cubilia.</p>
-				</section>
-				<section>
-					<header>
-						<h3>Unordered List</h3>
-					</header>
-					<ul class="default">
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					</ul>
-				</section>
-				<section>
-					<header>
-						<h3>Ordered List</h3>
-					</header>
-					<ol class="default">
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					</ol>
-				</section>
-				<section>
-					<header>
-						<h3>Table</h3>
-					</header>
-					<div class="table-wrapper">
-						<table class="default">
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Name</th>
-									<th>Description</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>45815</td>
-									<td>Something</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>29.99</td>
-								</tr>
-								<tr>
-									<td>24524</td>
-									<td>Nothing</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>19.99</td>
-								</tr>
-								<tr>
-									<td>45815</td>
-									<td>Something</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>29.99</td>
-								</tr>
-								<tr>
-									<td>24524</td>
-									<td>Nothing</td>
-									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
-									<td>19.99</td>
-								</tr>
-							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="3"></td>
-									<td>100.00</td>
-								</tr>
-							</tfoot>
-						</table>
-					</div>
-				</section>
-				<section>
-					<header>
-						<h3>Form</h3>
-					</header>
-					<form method="post" action="#">
-						<div class="row">
-							<div class="6u">
-								<input class="text" type="text" name="name" id="name" value="" placeholder="John Doe" />
-							</div>
-							<div class="6u">
-								<input class="text" type="text" name="email" id="email" value="" placeholder="johndoe@domain.tld" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="12u">
-								<select name="department" id="department">
-									<option value="">Choose a department</option>
-									<option value="1">Manufacturing</option>
-									<option value="2">Administration</option>
-									<option value="3">Support</option>
-								</select>
-							</div>
-						</div>
-						<div class="row">
-							<div class="12u">
-								<input class="text" type="text" name="subject" id="subject" value="" placeholder="Enter your subject" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="12u">
-								<textarea name="message" id="message" placeholder="Enter your message"></textarea>
-							</div>
-						</div>
-						<div class="row">
-							<div class="12u">
-								<ul class="actions">
-									<li><input type="submit" value="Submit" /></li>
-									<li><input type="reset" class="style3" value="Clear Form" /></li>
-								</ul>
-							</div>
-						</div>
-					</form>
-				</section>
-			</article>
-		-->
-
 		<section id="footer">
 			<ul class="icons">
-				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-				<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
-				<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-				<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+				<li><a ><span class="label"></span></a></li>
+				<li><a ><span class="label"></span></a></li>
+				<li><a ><span class="label"></span></a></li>
+				<li><a ><span class="label"></span></a></li>
+				<li><a ><span class="label"></span></a></li>
+				<li><a ><span class="label"></span></a></li>
 			</ul>
 			<div class="copyright">
 				<ul class="menu">
-					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 				</ul>
+                <ul class="menu">
+                 <li>References: <a target="_blank" href="http://ec.europa.eu/eurostat/data/database">All data taken from EUROSTAT</a></li>
+                    <li><a target="_blank" href="https://carto.com/">CARTO</a></li>
+                    <li><a target="_blank" href="https://d3js.org/">D3</a></li>
+                    <li><a target="_blank" href="https://bl.ocks.org/mbostock/1134768">Stacked Bar Chart by Mike Bostock</a></li>
+                    
+                </ul>
 			</div>
 		</section>
+        
+        
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -290,6 +154,65 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
+<script>
+var causes = ["ICT","total"];
+var margin = {top: 20, right: 80, bottom: 30, left: 50},
+    width = parseInt(d3.select("#svg2").style("width")) - margin.left - margin.right,
+    height = parseInt(d3.select("#svg2").style("height")) - margin.top - margin.bottom;
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width]);
+var y = d3.scale.linear()
+    .rangeRound([height, 0]);
+var z = d3.scale.category10();
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("right");           
+var svg = d3.select("#svg2")
+    .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+d3.tsv("gdpict.tsv", type, function(error, crimea) {
+  if (error) throw error;
+  var layers = d3.layout.stack()(causes.map(function(c) {
+    return crimea.map(function(d) {
+      return {x: d.country, y: d[c]};
+    });
+  }));
+  x.domain(layers[0].map(function(d) { return d.x; }));
+  y.domain([0, d3.max(layers[layers.length - 1], function(d) { return d.y0 + d.y; })]).nice();
+  var layer = svg.selectAll(".layer")
+      .data(layers)
+    .enter().append("g")
+      .attr("class", "layer")
+      .style("fill", function(d, i) { return z(i); });
+  layer.selectAll("rect")
+      .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.x); })
+      .attr("y", function(d) { return y(d.y + d.y0); })
+      .attr("height", function(d) { return y(d.y0) - y(d.y + d.y0); })
+      .attr("width", x.rangeBand() - 1)
+      .call(d3.helper.tooltip(function (d) {return "Country: <b>" + d.x + "</b><br/>GDP/c in €: " + d.y+ "</b><br/>ICT/c in €: " + d.y0 + "</b><br/>ICT%: " + Math.round(d.y0/d.y*100);}))
+  ;
+  svg.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+  svg.append("g")
+      .attr("class", "axis axis--y")
+      .attr("transform", "translate(" + width + ",0)")
+      .call(yAxis);
+});
+function type(d) {
+    causes.forEach(function(c) { d[c] = +d[c]; });
+  return d;
+}
+    
+</script>
 	</body>
 </html>
