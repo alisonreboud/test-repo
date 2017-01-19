@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- from https://bl.ocks.org/mbostock/1134768 - Mike Bostock’s Block -->
+<style>
+.axis text {
+  font: 10px sans-serif;
+}
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.axis--x path {
+  display: none;
+  }
+      .bar {
+        fill: mediumpurple;
+      }
+      .bar:hover {
+        fill: chartreuse;
+      }
+
+      .contentDiv {
+        background-color: "#caf0fb";
+        height: 200px;
+        position: bottom;
+        width: 200px;
+      }
+      @keyframes bouncing {
+        0% {bottom: 0;}
+        50% {bottom: 20px;}
+        100% {bottom: 0;}
+      }
+      .arrow {
+          animation: bouncing 1s infinite ease-in-out;
+          bottom: 0;
+          display: block;
+          height: 80px;
+          left: 90%;
+          margin-left: -25px;
+          position: absolute;
+          width: 80px;
+      }
+      .tooltip {
+	    
+	    background-color: #ffcb66;
+	    margin: 10px;
+	    height: 950px;
+	    width: 180px;
+	    padding-left: 10px;
+	    padding-top: 10px;
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 10px;
+	    border-radius: 10px;
+	  }
+    </style>  
+
+<body>
+<script src="https:////d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="http://alisonreboud.github.io/test-repo/Assignment_5/tooltips.js"></script>
+<script>
+var causes = ["ICT","total"];
+var margin = {top: 20, right: 50, bottom: 30, left: 20},
+    width = 1100 - margin.left - margin.right,
+    height = 550 - margin.top - margin.bottom;
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width]);
+var y = d3.scale.linear()
+    .rangeRound([height, 0]);
+var z = d3.scale.category10();
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("right");
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+d3.tsv("gdpict.tsv", type, function(error, crimea) {
+  if (error) throw error;
+  var layers = d3.layout.stack()(causes.map(function(c) {
+    return crimea.map(function(d) {
+      return {x: d.country, y: d[c]};
+    });
+  }));
+  x.domain(layers[0].map(function(d) { return d.x; }));
+  y.domain([0, d3.max(layers[layers.length - 1], function(d) { return d.y0 + d.y; })]).nice();
+  var layer = svg.selectAll(".layer")
+      .data(layers)
+    .enter().append("g")
+      .attr("class", "layer")
+      .style("fill", function(d, i) { return z(i); });
+  layer.selectAll("rect")
+      .data(function(d) { return d; })
+    .enter().append("rect")
+      .attr("x", function(d) { return x(d.x); })
+      .attr("y", function(d) { return y(d.y + d.y0); })
+      .attr("height", function(d) { return y(d.y0) - y(d.y + d.y0); })
+      .attr("width", x.rangeBand() - 1)
+      .call(d3.helper.tooltip(function (d) {return "Country: <b>" + d.x + "</b><br/>GDP: " + d.y+ "</b><br/>ICT: " + d.y0 + "</b><br/>ICT%: " + Math.round(d.y0/d.y*100);}))
+  ;
+  svg.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+  svg.append("g")
+      .attr("class", "axis axis--y")
+      .attr("transform", "translate(" + width + ",0)")
+      .call(yAxis);
+});
+function type(d) {
+    causes.forEach(function(c) { d[c] = +d[c]; });
+  return d;
+}
+</script>
