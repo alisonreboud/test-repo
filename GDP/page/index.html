@@ -176,7 +176,7 @@ var svg = d3.select("#svg2")
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-d3.tsv("http://alisonreboud.github.io/test-repo/GDP/gdpict.tsv", type, function(error, crimea) {
+d3.tsv("gdpict.tsv", type, function(error, crimea) {
   if (error) throw error;
   var layers = d3.layout.stack()(causes.map(function(c) {
     return crimea.map(function(d) {
