@@ -1819,6 +1819,7 @@
 
 			.box.style1.right .image {
 				left: 0;
+				
 			}
 
 				.box.style1.right .image img {
@@ -1832,6 +1833,7 @@
 
 			.box.style1.left .image {
 				right: 0;
+				width: 80%;
 			}
 
 				.box.style1.left .image img {
@@ -1839,7 +1841,7 @@
 				}
 
 			.box.style1.left .inner {
-				margin-right: 70%;
+				margin-right: 80%;
 				padding-right: 3em;
 			}
 
