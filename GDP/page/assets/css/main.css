@@ -1800,7 +1800,7 @@
 				display: block;
 				position: absolute;
 				top: 0;
-				width: 50%;
+				width: 70%;
 				height: 100%;
 
 				overflow: hidden;
@@ -1826,7 +1826,7 @@
 				}
 
 			.box.style1.right .inner {
-				margin-left: 50%;
+				margin-left: 70%;
 				padding-left: 3em;
 			}
 
